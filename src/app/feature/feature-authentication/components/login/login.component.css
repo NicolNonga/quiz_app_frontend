@@ -1,0 +1,11 @@
+.btn-primary{
+    background: #0c3744 !important;
+    border: none;
+}
+.text-muted{
+    color: #0c3744 !important;
+}
+.is-invalid{
+    border-color: red !important;
+    
+}

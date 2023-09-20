@@ -1,0 +1,91 @@
+<form class="form" [formGroup]="this.loginForm">
+  <!-- FORM ROW -->
+  <div class="form-row">
+    <!-- FORM ITEM -->
+    <div class="form-item">
+      <!-- FORM INPUT -->
+      <div class="form-input">
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username"  [ngClass]="{ 'is-invalid': submitted && this.loginFormControl['username'].errors, 'is-valid': loginFormControl['username'].touched && !loginFormControl['username'].errors }" formControlName="username" class="is-invalid" name="login_username">
+        <div *ngIf="this.submitted && this.loginFormControl['username'].errors" class="invalid-feedback">
+          <div *ngIf=" this.loginFormControl['username'].errors['required']">
+               por favor informa o username
+          </div>
+
+        </div>
+      </div>
+      <!-- /FORM INPUT -->
+    </div>
+    <!-- /FORM ITEM -->
+  </div>
+  <!-- /FORM ROW --
+
+  <!-- FORM ROW -->
+  <div class="form-row">
+    <!-- FORM ITEM -->
+    <div class="form-item">
+      <!-- FORM INPUT -->
+      <div class="form-input">
+        <label for="login-password">Password</label>
+        <input type="password"  [ngClass]="{ 'is-invalid': submitted && this.loginFormControl['password'].errors, 'is-valid': loginFormControl['password'].touched && !loginFormControl['password'].errors }" formControlName="password" class="is-invalid" id="login-password" name="login_password">
+        <div *ngIf="this.submitted && this.loginFormControl['password'].errors" class="invalid-feedback">
+          <div *ngIf=" this.loginFormControl['password'].errors['required']">
+            por favor informa a password
+          </div>
+
+        </div>
+      </div>
+      <!-- /FORM INPUT -->
+    </div>
+    <!-- /FORM ITEM -->
+  </div>
+  <!-- /FORM ROW -->
+
+  <!-- FORM ROW -->
+  <div class="form-row space-between">
+    <!-- FORM ITEM -->
+    <div class="form-item">
+      <!-- CHECKBOX WRAP -->
+      <div class="checkbox-wrap">
+        <input type="checkbox" id="login-remember" name="login_remember" checked>
+        <!-- CHECKBOX BOX -->
+        <div class="checkbox-box">
+          <!-- ICON CROSS -->
+          <svg class="icon-cross">
+            <use xlink:href="#svg-cross"></use>
+          </svg>
+          <!-- /ICON CROSS -->
+        </div>
+        <!-- /CHECKBOX BOX -->
+        <label for="login-remember">Remember Me</label>
+      </div>
+      <!-- /CHECKBOX WRAP -->
+    </div>
+    <!-- /FORM ITEM -->
+
+    <!-- FORM ITEM -->
+    <div class="form-item">
+      <!-- FORM LINK -->
+      <a class="form-link" href="#">Forgot Password?</a>
+      <!-- /FORM LINK -->
+    </div>
+    <!-- /FORM ITEM -->
+  </div>
+  <!-- /FORM ROW -->
+
+  <!-- FORM ROW -->
+  <div class="form-row">
+    <!-- FORM ITEM -->
+    <div class="form-item">
+      <!-- BUTTON -->
+      <button class="button medium secondary" (click)="this.onSubmit()">Entrar!</button>
+      <button *ngIf="this.loading" class="button medium secondary" disabled>
+        <span  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        carregando...
+      </button>
+      <!-- /BUTTON -->
+    </div>
+    <!-- /FORM ITEM -->
+  </div>
+  <!-- /FORM ROW -->
+</form>
