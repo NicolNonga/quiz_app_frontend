@@ -19,13 +19,15 @@ import { MainDashboardComponent } from './feature/feature-dashboard/main-dashboa
 import { QuizComponent } from './feature/feature-quiz/quiz/quiz.component';
 import { CreateOrEditQuizComponent } from './feature/feature-quiz/quiz/create-or-edit-quiz/create-or-edit-quiz.component';
 import { CategoriaComponent } from './feature/feature-quiz/categoria/categoria.component';
+import { CreateOrEditCategoriaComponent } from './feature/feature-quiz/categoria/create-or-edit-categoria/create-or-edit-categoria.component';
 @NgModule({
   declarations: [
     AppComponent,
     MainDashboardComponent,
     QuizComponent,
     CreateOrEditQuizComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    CreateOrEditCategoriaComponent
     
 
   ],
@@ -39,6 +41,7 @@ import { CategoriaComponent } from './feature/feature-quiz/categoria/categoria.c
     
   ],
   exports: [
+
     CoreModule,
   ],
   providers : [

@@ -4,3 +4,7 @@ export interface Icategory {
     createdAt: string,
     updatedAt: string
 }
+
+export  interface ICategoryDTO {
+    name : string
+}
