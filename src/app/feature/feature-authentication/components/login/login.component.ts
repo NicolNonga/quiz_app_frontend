@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   buttonLoginText ='Entrar'
   constructor(private formBuider: FormBuilder,
     private authService: AuthenticationService,
+    
     private route: ActivatedRoute,
     private router: Router,
   ) {

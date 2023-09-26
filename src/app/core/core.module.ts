@@ -6,11 +6,14 @@ import { AuthenticationService } from './services/authentication/auth.service';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { LoginComponent } from '../feature/feature-authentication/components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
+import { MainDashboardComponent } from '../feature/feature-dashboard/main-dashboard/main-dashboard.component';
 
 
 @NgModule({
   declarations: [
     MainLayoutComponent,
+   /*  MainDashboardComponent, */
+
 
   ],
   imports: [
@@ -24,6 +27,9 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     FormsModule,
     SharedModule,
+    MainLayoutComponent,
+   /*  MainDashboardComponent, */
+
     ReactiveFormsModule
   ],
   providers:[

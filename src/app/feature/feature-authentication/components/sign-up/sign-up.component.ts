@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingJsFile } from 'src/app/core/services/loadingJs/loadingJs.service';
+import { confirmPasswordValidator } from 'src/app/core/services/passwordValidation/password_validation.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,11 +17,12 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.signForm= this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      confirm_password:['', Validators.required]
-     })
+     this.signForm=  new FormGroup({
+      usranme: new FormControl('',[ Validators.required]),
+      password: new FormControl('',[ Validators.required]),
+      confirm_password: new FormControl('',[ Validators.required]),
+     
+     },  {validators: confirmPasswordValidator});
     this.laodingJsService.loadingMainJs('assets/js/app.bundle.min.js')
   }
 

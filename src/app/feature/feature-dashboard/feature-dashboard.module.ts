@@ -7,7 +7,7 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { HeaderInternComponent } from "src/app/core/components/header-intern/header-intern.component";
 
 @NgModule({
-  declarations: [MainDashboardComponent],
+  declarations: [],
   imports: [CommonModule, FeatureDashboardRoutingModule, SharedModule ],
 })
 export class FeatureDashboardModule {}

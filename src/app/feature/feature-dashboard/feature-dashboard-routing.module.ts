@@ -7,7 +7,6 @@ const routes: Routes = [
 {
   path:'',
   component: MainDashboardComponent,
-  canActivate: [AuthGuard],  
   data: {
     title: "Página Principal",
     layout:{

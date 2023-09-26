@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,10 +14,19 @@ import { GlobalErrorHandle } from './core/interceptors/globalErrorHandler.interc
 import { Ng2IziToastModule } from 'ng2-izitoast'
 import { RetryInterceptor } from './core/interceptors/retry.interceptor';
 import { JwtInterceptor } from './core/interceptors/JwtInterceptor.interceptor';
-
+import { MainLayoutComponent } from './core/components/main-layout/main-layout.component';
+import { MainDashboardComponent } from './feature/feature-dashboard/main-dashboard/main-dashboard.component';
+import { QuizComponent } from './feature/feature-quiz/quiz/quiz.component';
+import { CreateOrEditQuizComponent } from './feature/feature-quiz/quiz/create-or-edit-quiz/create-or-edit-quiz.component';
+import { CategoriaComponent } from './feature/feature-quiz/categoria/categoria.component';
 @NgModule({
   declarations: [
     AppComponent,
+    MainDashboardComponent,
+    QuizComponent,
+    CreateOrEditQuizComponent,
+    CategoriaComponent
+    
 
   ],
   imports: [
@@ -33,10 +42,7 @@ import { JwtInterceptor } from './core/interceptors/JwtInterceptor.interceptor';
     CoreModule,
   ],
   providers : [
-    {
-      provide: HTTP_INTERCEPTORS, useClass: GlobalErrorHandle,
-      multi:true
-    },
+ 
     {provide: HTTP_INTERCEPTORS, useClass: RetryInterceptor,multi:true},
     {
       provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true

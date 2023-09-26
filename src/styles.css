@@ -1,6 +1,142 @@
 /* 
 
 @import url(assets/css/styles.min.css); */
+body {
+    background-color: #f8f8fb !important;
+}
+
+
+.point-reward-box {
+    display: -ms-flexbox;
+    display: flex;
+    padding: 32px 0 32px 90px;
+    border-radius: 12px;
+    background-color:  #fff !important;
+    box-shadow: 0 0 40px 0 rgba(94,92,154, .06);
+    position: relative;
+}
+
+.point-reward-box .point-reward-box-icon-wrap {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color:  #fff;
+    box-shadow:  3px 5px 20px 0 rgba(94,92,154, .12);
+    position: absolute;
+    top: 22px;
+    left: 28px;
+}
+
+.grid.grid-half {
+    grid-template-columns: 1fr 1fr;
+}
+
+.content-grid .grid {
+    margin-top: 32px !important;
+}
+
+.point-reward-box {
+    display: -ms-flexbox;
+    display: flex;
+    padding: 32px 0 32px 90px;
+    border-radius: 12px;
+    background-color:#fff !important;
+    box-shadow: 0 0 40px 0 rgba(94,92,154, .06) !important;
+    position: relative;
+}
+
+.point-reward-box .point-reward-box-icon-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    content: center;
+    height: 46px;
+    border-radius: 50%;
+    background-color: #fff !important;
+    box-shadow: 0 0 40px 0 rgb(94 92 154 / 52%) !important;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}
+
+
+.point-reward-box .point-reward-box-info.point-reward-box-info-description {
+    width: 320px;
+    padding-right: 32px;
+}
+
+.text-sticker {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 14px;
+    border-radius: 0;
+    background-color: #ffc10787;
+    box-shadow: 3px 5px 20px 0 rgba(94,92,154, .12);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 32px;
+    color: black;
+    margin-left: 15px;
+}
+
+.point-reward-box .point-reward-box-info .point-reward-box-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.2857142857em;
+}
+
+.point-reward-box .point-reward-box-icon-wrap .point-reward-box-icon {
+    fill: #3e3f5e !important;
+}
+
+.header .header-actions.search-bar .search-form-wrap {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.interactive-input.dark input {
+    border: none;
+    background-color: #4e4ac8 !important;
+    color: var(--color-header-text);
+}
+.interactive-input {
+    width: 100% !important;
+    height: 52px !important;
+    position: relative;
+}
+.interactive-input .form {
+    height: 100%;
+}
+.form{
+    width: 100%;
+}
+
+credits, .icon-ranks, .icon-admin-crown, .icon-mod-shield, .icon-ban, .icon-remove-user {
+    fill: var(--color-icon);
+    width: 20px;
+    height: 20px;
+}
+.modal.show .modal-dialog {
+    transform: none;
+    margin-top: 100px !important;
+}
+.active {
+    color: #fff !important;
+    background-color: #23d2e2 !important;
+    box-shadow: 4px 7px 12px 0 rgba(35,210,226, .2) !important;
+}
 @import url(assets/css/vendor/bootstrap.min.css);
 @import url(assets/css/vendor/simplebar.css);
 @import url(assets/css/vendor/tiny-slider.css)
+
+
+ 
+ 
