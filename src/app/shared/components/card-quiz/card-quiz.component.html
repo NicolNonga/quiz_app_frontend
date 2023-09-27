@@ -1,0 +1,64 @@
+<div class="grid grid-half">
+    <div
+      class="point-reward-box"
+      *ngFor="let quiz of this.cardQuizInfor; index as i"
+    >
+      <!-- POINT REWARD BOX ICON WRAP -->
+      <div class="point-reward-box-icon-wrap">
+        <!-- ICON SVG -->
+        {{ i + 1 }}
+
+        <!-- ICON SVG -->
+      </div>
+      <!-- /POINT REWARD BOX ICON WRAP -->
+
+      <!-- POINT REWARD BOX INFO -->
+      <div class="point-reward-box-info point-reward-box-info-description">
+        <!-- POINT REWARD BOX TITLE -->
+        <p class="point-reward-box-title">Nome</p>
+        <!-- /POINT REWARD BOX TITLE -->
+
+        <!-- POINT REWARD BOX TEXT -->
+        <p class="point-reward-box-text">{{ quiz.name }}</p>
+
+        <p class="point-reward-box-title">Topico</p>
+        <!-- /POINT REWARD BOX TITLE -->
+
+        <!-- POINT REWARD BOX TEXT -->
+        <p class="point-reward-box-text">
+          {{ quiz.topic == "NULL" ? "Sem Topico" : quiz.topic }}
+        </p>
+        <!-- /POINT REWARD BOX TEXT -->
+      </div>
+
+      <!-- /POINT REWARD BOX INFO -->
+
+      <!-- POINT REWARD BOX INFO -->
+      <div class="point-reward-box-info">
+        <!-- POINT REWARD BOX TITLE -->
+        <p class="point-reward-box-title">Data Criação</p>
+        <!-- /POINT REWARD BOX TITLE -->
+
+        <!-- POINT REWARD BOX TEXT -->
+        <p class="point-reward-box-text">
+          {{ quiz.createdAt | date : "MM-dd-yyyy" }}
+        </p>
+        <!-- /POINT REWARD BOX TEXT -->
+      </div>
+      <!-- /POINT REWARD BOX INFO -->
+
+      <!-- TEXT STICKER -->
+      <p class="text-sticker">
+        <!-- ICON SVG -->
+        <svg class="icon-plus-small text-sticker-icon"></svg>
+        <!-- ICON SVG -->
+        Editar
+        <!-- TEXT STICKER IMAGE -->
+        <i class="fa fa-edit"></i>
+        <!-- /TEXT STICKER IMAGE -->
+      </p>
+      <!-- /TEXT STICKER -->
+
+      <!-- SECTION HEADER -->
+    </div>
+  </div>

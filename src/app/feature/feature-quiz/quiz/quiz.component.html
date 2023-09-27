@@ -32,102 +32,60 @@
     </p>
     <!-- /SECTION BANNER TEXT -->
   </div>
-  <!-- /SECTION BANNER -->
-  <!-- SECTION HEADER -->
-  <div class="section-header">
-    <!-- SECTION HEADER INFO -->
-    <div class="section-header-info">
-      <!-- SECTION PRETITLE -->
 
-      <!-- /SECTION PRETITLE -->
 
-      <!-- SECTION TITLE -->
-      <h2 class="section-title">
-       
-      </h2>
-      <!-- /SECTION TITLE -->
+  <div class="row" style="margin-top: 10px">
+    <div class="col-md-10">
+      <div class="header-actions search-bar">
+        <!-- SEARCH FORM -->
+        <div id="vk-search-form">
+          <div class="search-form-wrap" style="position: relative">
+            <div class="interactive-input dark">
+              <form
+                class="form"
+                method="get"
+                action="https://odindesignthemes.com/vikinger-theme/"
+              >
+                <input
+                  type="text"
+                  name="s"
+                  placeholder="Enter your search here..."
+               
+                  (keyup)="this.filterQuiz()"
+                  [(ngModel)]="this.filterQuizValue"
+                /><button style="display: none"></button>
+              </form>
+              <div class="interactive-input-icon-wrap">
+                <svg class="icon-magnifying-glass interactive-input-icon">
+                  <use href="#svg-magnifying-glass"></use>
+                </svg>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        <!-- /SEARCH FORM -->
+      </div>
     </div>
-    <!-- /SECTION HEADER INFO -->
-  </div>
-  <!-- /SECTION HEADER -->
-  <div class="header-actions search-bar">
-  
-    <!-- SEARCH FORM -->
-    <div id="vk-search-form"><div class="search-form-wrap" style="position: relative;"><div class="interactive-input dark"><form class="form" method="get" action="https://odindesignthemes.com/vikinger-theme/"><input type="text" name="s" placeholder="Enter your search here..." value=""><button style="display: none;"></button></form><div class="interactive-input-icon-wrap"><svg class="icon-magnifying-glass interactive-input-icon"><use href="#svg-magnifying-glass"></use></svg></div></div><div class="dropdown-box padding-bottom-small" style="position: absolute; z-index: 9999; top: 57px; left: 0px; opacity: 0; visibility: hidden; transform: translate(0px, -40px); transition: transform 0.4s ease-in-out 0s, opacity 0.4s ease-in-out 0s, visibility 0.4s ease-in-out 0s;"><div data-simplebar="init" style="overflow-x: hidden; max-height: 420px; padding-bottom: 14px;"><div class="simplebar-wrapper" style="margin: 0px 0px -14px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 0px 0px 14px;"><div class="dropdown-box-category"><p class="dropdown-box-category-title">Members</p></div><p class="no-results-text">No results found</p><div class="dropdown-box-category"><p class="dropdown-box-category-title">Groups</p></div><p class="no-results-text">No results found</p><div class="dropdown-box-category"><p class="dropdown-box-category-title">post</p></div><p class="no-results-text">No results found</p><div class="dropdown-box-category"><p class="dropdown-box-category-title">product</p></div><p class="no-results-text">No results found</p></div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 338px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div></div></div></div>
-    <!-- /SEARCH FORM -->  </div>
-  
-  <div class="grid grid-half">
-   
-    <div
-      class="point-reward-box"
-      *ngFor="let quiz of this.quizData; index as i"
-    >
-      <!-- POINT REWARD BOX ICON WRAP -->
-      <div class="point-reward-box-icon-wrap">
-        <!-- ICON SVG -->
-               {{i + 1}}
-
-        
-        <!-- ICON SVG -->
-      </div>
-      <!-- /POINT REWARD BOX ICON WRAP -->
-
-      <!-- POINT REWARD BOX INFO -->
-      <div class="point-reward-box-info point-reward-box-info-description">
-        <!-- POINT REWARD BOX TITLE -->
-        <p class="point-reward-box-title">Nome</p>
-        <!-- /POINT REWARD BOX TITLE -->
-
-        <!-- POINT REWARD BOX TEXT -->
-        <p class="point-reward-box-text">{{ quiz.name }}</p>
-
-        <p class="point-reward-box-title">Topico</p>
-        <!-- /POINT REWARD BOX TITLE -->
-
-        <!-- POINT REWARD BOX TEXT -->
-        <p class="point-reward-box-text">{{ quiz.topic == "NULL" ? 'Sem Topico': quiz.topic  }}</p>
-        <!-- /POINT REWARD BOX TEXT -->
-      </div>
-
-      
-      <!-- /POINT REWARD BOX INFO -->
-
-      <!-- POINT REWARD BOX INFO -->
-      <div class="point-reward-box-info">
-        <!-- POINT REWARD BOX TITLE -->
-        <p class="point-reward-box-title">Data Criação</p>
-        <!-- /POINT REWARD BOX TITLE -->
-        
-
-        <!-- POINT REWARD BOX TEXT -->
-        <p class="point-reward-box-text">
-          {{ quiz.createdAt | date : "MM-dd-yyyy" }}
-        </p>
-        <!-- /POINT REWARD BOX TEXT -->
-      </div>
-      <!-- /POINT REWARD BOX INFO -->
-
-      <!-- TEXT STICKER -->
-      <p class="text-sticker">
-        <!-- ICON SVG -->
-        <svg class="icon-plus-small text-sticker-icon"></svg>
-        <!-- ICON SVG -->
-         Editar
-        <!-- TEXT STICKER IMAGE -->
-        <i class="fa fa-edit"></i>
-        <!-- /TEXT STICKER IMAGE -->
-      </p>
-      <!-- /TEXT STICKER -->
-
-      <!-- SECTION HEADER -->
+    <div class="col-md-2">
+        <app-generic-button [proprietyButton]="{
+          show_model: true,
+          data_target_name: '#exampleModal',
+          style: '',
+          class:'button primary login-button'
+        }"></app-generic-button>
     </div>
+
   </div>
-  <p class="section-pretitle"  style="margin-top:  10px;">
-    <button class="button primary login-button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="width: 200px;">Criar Nova Quiz</button>
-  </p>
+
+  <app-card-quiz [cardQuizInfor]="this.quizData">
+
+  </app-card-quiz>
+
+
+
 </div>
 
-
-
-
-<app-create-or-edit-quiz  (quizEvent)="this.createQuiz($event)"></app-create-or-edit-quiz>
+<app-create-or-edit-quiz
+  (quizEvent)="this.createQuiz($event)"
+></app-create-or-edit-quiz>

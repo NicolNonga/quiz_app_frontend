@@ -12,6 +12,8 @@ import { NotificationService } from 'src/app/core/services/notification/notifica
 })
 export class QuizComponent  extends SmartComponent implements OnInit {
   public quizData: Array<QuizInterface> = []
+  public quizDataToFilter : Array<QuizInterface> = [];
+  public filterQuizValue: string = ''
     
   constructor(private loadingJs: LoadingJsFile, 
     public quizService: QuizService,
@@ -28,20 +30,27 @@ export class QuizComponent  extends SmartComponent implements OnInit {
 
     getAllQuiz() {
          this.quizService.listAllQuiz().subscribe((data)=>{
-            this.quizData = data?._value
+            this.quizData = data?._value;
+            this.quizDataToFilter= this.quizData;
            
          })
     }
 
 
     createQuiz(quiz: QuizDTO | any){
-      console.log("ee", quiz)
+   
         this.quizService.create(quiz).subscribe(data=>{
           if(data){
              this.notificationService.showSucess('Quiz Criado Com  Sucesso')
              this.getAllQuiz()
           }
         })
+    }
+
+    public filterQuiz(){
+      this.quizData= [];
+      this.quizData= this.quizService.filterQuiz(this.quizDataToFilter, this.filterQuizValue)
+      
     }
 }
 

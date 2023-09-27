@@ -105,8 +105,12 @@ body {
 .interactive-input.dark input {
     border: none;
     background-color: #4e4ac8 !important;
-    color: var(--color-header-text);
+    color: #f8f8fb;
 }
+
+.interactive-input.dark input::placeholder{
+    color: #f8f8fb !important;
+} 
 .interactive-input {
     width: 100% !important;
     height: 52px !important;

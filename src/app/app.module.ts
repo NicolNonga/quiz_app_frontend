@@ -20,6 +20,7 @@ import { QuizComponent } from './feature/feature-quiz/quiz/quiz.component';
 import { CreateOrEditQuizComponent } from './feature/feature-quiz/quiz/create-or-edit-quiz/create-or-edit-quiz.component';
 import { CategoriaComponent } from './feature/feature-quiz/categoria/categoria.component';
 import { CreateOrEditCategoriaComponent } from './feature/feature-quiz/categoria/create-or-edit-categoria/create-or-edit-categoria.component';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { CreateOrEditCategoriaComponent } from './feature/feature-quiz/categoria
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    SharedModule,
     Ng2IziToastModule
      // our Http client module
         

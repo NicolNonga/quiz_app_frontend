@@ -6,18 +6,25 @@ import { HeaderInternComponent } from '../core/components/header-intern/header-i
 import { SiderBarComponent } from '../core/components/sidebar/siderbar.component';
 
 import { RouterModule } from '@angular/router';
+import { GenericButtonComponent } from './components/generic-button/generic-button.component';
+import { CardQuizComponent } from './components/card-quiz/card-quiz.component';
 
 @NgModule({
   declarations: [
     FormFieldComponent,
     InputDirective,
     HeaderInternComponent,
-    SiderBarComponent
+    SiderBarComponent,
+    GenericButtonComponent,
+    CardQuizComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [FormFieldComponent, InputDirective, HeaderInternComponent, SiderBarComponent]
+  exports: [FormFieldComponent, InputDirective, HeaderInternComponent, 
+    SiderBarComponent, 
+    GenericButtonComponent,
+  CardQuizComponent]
 })
 export class SharedModule { }
