@@ -21,6 +21,10 @@ import { CreateOrEditQuizComponent } from './feature/feature-quiz/quiz/create-or
 import { CategoriaComponent } from './feature/feature-quiz/categoria/categoria.component';
 import { CreateOrEditCategoriaComponent } from './feature/feature-quiz/categoria/create-or-edit-categoria/create-or-edit-categoria.component';
 import { SharedModule } from './shared/shared.module';
+import { QuizSectionComponent } from './feature/feature-quiz/quiz-section/quiz-section.component';
+import { CreateOrEditQuizSectionComponent } from './feature/feature-quiz/quiz-section/create-or-edit-quiz-section/create-or-edit-quiz-section.component';
+import { QuizQuestionComponent } from './feature/quiz-question/quiz-question.component';
+import { DasboardQuizCountComponent } from './dasboard-quiz-count/dasboard-quiz-count.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,16 +32,21 @@ import { SharedModule } from './shared/shared.module';
     QuizComponent,
     CreateOrEditQuizComponent,
     CategoriaComponent,
-    CreateOrEditCategoriaComponent
+    CreateOrEditCategoriaComponent,
+    CreateOrEditQuizSectionComponent,
+    QuizSectionComponent,
+    QuizQuestionComponent,
+    DasboardQuizCountComponent
     
 
   ],
   imports: [
-    BrowserModule,
+
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    Ng2IziToastModule
+    Ng2IziToastModule,
+    BrowserModule,
      // our Http client module
         
     

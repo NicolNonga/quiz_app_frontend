@@ -1,8 +1,10 @@
 
-<div>
+<div >
+
     <app-header-intern [userIntern]="this.userIntern" (logoutEvent)="this.logout()"  class="{{ layout.layoutNavigationTop?'content-wrapper-left': ''}}"  *ngIf="layout.customLayout"></app-header-intern>
 
     <siderbar class="{{ layout.layoutNavigationTop?'content-wrapper-left': ''}}"  *ngIf="layout.customLayout"></siderbar>
+
 
     <router-outlet></router-outlet>
 

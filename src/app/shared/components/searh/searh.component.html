@@ -1,0 +1,26 @@
+<div id="vk-search-form">
+    <div class="search-form-wrap" style="position: relative">
+      <div class="interactive-input dark">
+        <form
+          class="form"
+          method="get"
+          action="https://odindesignthemes.com/vikinger-theme/"
+        >
+          <input
+            type="text"
+            name="s"
+            placeholder="{{this.placerholderText}}"
+         
+            (keyup)="this.search()"
+            [(ngModel)]="this.filterQuizValue"
+          /><button style="display: none"></button>
+        </form>
+        <div class="interactive-input-icon-wrap">
+          <svg class="icon-magnifying-glass interactive-input-icon">
+            <use href="#svg-magnifying-glass"></use>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>

@@ -2,6 +2,9 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { QuizComponent } from "./feature/feature-quiz/quiz/quiz.component";
 import { CategoriaComponent } from "./feature/feature-quiz/categoria/categoria.component";
+import { QuizSectionComponent } from "./feature/feature-quiz/quiz-section/quiz-section.component";
+import { QuizQuestionComponent } from "./feature/quiz-question/quiz-question.component";
+import { DasboardQuizCountComponent } from "./dasboard-quiz-count/dasboard-quiz-count.component";
 // import our components
 
 const routes: Routes = [
@@ -13,12 +16,14 @@ const routes: Routes = [
 
   {
     path: "",
+    component: DasboardQuizCountComponent,
     data: {
       title: "",
       layout: {
         customLayout: true,
         layoutNavigationTop: true,
       },
+      
     },
     loadChildren: () =>
       import("./feature/feature-dashboard/feature-dashboard.module").then(
@@ -41,6 +46,29 @@ const routes: Routes = [
   {
     path: 'all_category', 
     component: CategoriaComponent,
+    data: {
+      title: "Quiz",
+      layout: {
+        customLayout: true,
+        layoutNavigationTop: false,
+      },
+    },
+  },
+  {
+    path:'all_quiz_section',
+    component: QuizSectionComponent,
+    data: {
+      title: "Quiz",
+      layout: {
+        customLayout: true,
+        layoutNavigationTop: false,
+      },
+    },
+  },
+
+  {
+    path:'all_quiz_question',
+    component: QuizQuestionComponent,
     data: {
       title: "Quiz",
       layout: {

@@ -7,55 +7,34 @@
   "
 >
   <!-- SECTION BANNER -->
-  <div
-    class="section-banner"
-    style="
-      background: url('https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/img/banner/banner-bg.png')
-        center center / cover no-repeat;
-    "
-  >
-    <!-- SECTION BANNER ICON -->
-    <img
-      class="section-banner-icon"
-      src="https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/img/banner/credits-icon.png"
-      alt="section-icon"
-    />
-    <!-- /SECTION BANNER ICON -->
+           <app-banner [bannerData]="{
+            title:'Categoria',
+            description: 'Apaixo apresentamos a listagem das quiz'
+           }">
 
-    <!-- SECTION BANNER TITLE -->
-    <p class="section-banner-title">Listagem de Todas Category</p>
-    <!-- /SECTION BANNER TITLE -->
+           </app-banner>
 
-    <!-- SECTION BANNER TEXT -->
-    <p class="section-banner-text">
-      Abaixo apresentamos a listagem de todas a category
-    </p>
-    <!-- /SECTION BANNER TEXT -->
-  </div>
-  <!-- /SECTION BANNER -->
-  <!-- SECTION HEADER -->
-  <div class="section-header">
-    <!-- SECTION HEADER INFO -->
-    <div class="section-header-info">
-      <!-- SECTION PRETITLE -->
-
-      <!-- /SECTION PRETITLE -->
-
-      <!-- SECTION TITLE -->
-      <h2 class="section-title">
-       
-      </h2>
-      <!-- /SECTION TITLE -->
-    </div>
-    <!-- /SECTION HEADER INFO -->
-  </div>
-  <!-- /SECTION HEADER -->
-  <div class="header-actions search-bar">
-  
-    <!-- SEARCH FORM -->
-    <div id="vk-search-form"><div class="search-form-wrap" style="position: relative;"><div class="interactive-input dark"><form class="form">
-        <input type="text" name="s" placeholder="Pesquisar Categoria" value=""><button style="display: none;"></button></form><div class="interactive-input-icon-wrap"><svg class="icon-magnifying-glass interactive-input-icon"><use href="#svg-magnifying-glass"></use></svg></div></div><div class="dropdown-box padding-bottom-small" style="position: absolute; z-index: 9999; top: 57px; left: 0px; opacity: 0; visibility: hidden; transform: translate(0px, -40px); transition: transform 0.4s ease-in-out 0s, opacity 0.4s ease-in-out 0s, visibility 0.4s ease-in-out 0s;"><div data-simplebar="init" style="overflow-x: hidden; max-height: 420px; padding-bottom: 14px;"><div class="simplebar-wrapper" style="margin: 0px 0px -14px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 0px 0px 14px;"><div class="dropdown-box-category"><p class="dropdown-box-category-title">Members</p></div><p class="no-results-text">No results found</p><div class="dropdown-box-category"><p class="dropdown-box-category-title">Groups</p></div><p class="no-results-text">No results found</p><div class="dropdown-box-category"><p class="dropdown-box-category-title">post</p></div><p class="no-results-text">No results found</p><div class="dropdown-box-category"><p class="dropdown-box-category-title">product</p></div><p class="no-results-text">No results found</p></div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 338px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div></div></div></div>
-    <!-- /SEARCH FORM -->  </div>
+           <div class="row" style="margin-top: 10px">
+            <div class="col-md-10">
+              <div class="header-actions search-bar">
+                <!-- SEARCH FORM -->
+                   <app-searh  [placerholderText]="this.placeholderText" (EmitterValueSearch)="this.searchCategory($event)">
+        
+                   </app-searh>
+                <!-- /SEARCH FORM -->
+              </div>
+            </div>
+            <div class="col-md-2">
+                <app-generic-button [proprietyButton]="{
+                  show_model: true,
+                  data_target_name: '#exampleModal',
+                  style: '',
+                  class:'button primary login-button',
+                  name: 'Criar Categoria'
+                }"></app-generic-button>
+            </div>
+        
+          </div>
   
   <div class="grid grid-half">
    
@@ -118,10 +97,7 @@
       <!-- SECTION HEADER -->
     </div>
   </div>
-  <p class="section-pretitle"  style="margin-top:  10px;">
-    <button class="button primary login-button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-     style="width: 200px;">Criar Nova Categoria</button>
-  </p>
+
 </div>
 
 

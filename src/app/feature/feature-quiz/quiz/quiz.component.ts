@@ -4,6 +4,7 @@ import { LoadingJsFile } from 'src/app/core/services/loadingJs/loadingJs.service
 import { QuizService } from 'src/app/core/services/quiz/quiz.service';
 import { QuizDTO, QuizInterface } from './interface/quiz.interface';
 import { NotificationService } from 'src/app/core/services/notification/notification.service';
+import { IGericButton } from 'src/app/shared/interface/generic-button.interface';
 
 @Component({
   selector: 'app-quiz',
@@ -14,6 +15,15 @@ export class QuizComponent  extends SmartComponent implements OnInit {
   public quizData: Array<QuizInterface> = []
   public quizDataToFilter : Array<QuizInterface> = [];
   public filterQuizValue: string = ''
+  public placeholderText ="Pesquisar quiz"
+
+public buttonProprietis: IGericButton = {
+          show_model: true,
+          data_target_name: '#exampleModal',
+          style: '',
+          class: 'button primary login-button',
+          name: 'Criar Quiz'
+}
     
   constructor(private loadingJs: LoadingJsFile, 
     public quizService: QuizService,
@@ -47,9 +57,9 @@ export class QuizComponent  extends SmartComponent implements OnInit {
         })
     }
 
-    public filterQuiz(){
+    public filterQuiz(value: string){
       this.quizData= [];
-      this.quizData= this.quizService.filterQuiz(this.quizDataToFilter, this.filterQuizValue)
+      this.quizData= this.quizService.filterQuiz(this.quizDataToFilter,  value)
       
     }
 }

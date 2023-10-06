@@ -1,0 +1,13 @@
+i{
+    color: #615dfa !important;
+    padding: 7px !important;
+    margin-top: 10px !important;
+ 
+}
+.bi-check-circle::before{
+    padding: 7px !important;
+}
+.card{
+
+    background-color: #fff !important;
+}

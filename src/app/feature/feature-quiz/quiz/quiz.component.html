@@ -7,63 +7,19 @@
   "
 >
   <!-- SECTION BANNER -->
-  <div
-    class="section-banner"
-    style="
-      background: url('https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/img/banner/banner-bg.png')
-        center center / cover no-repeat;
-    "
-  >
-    <!-- SECTION BANNER ICON -->
-    <img
-      class="section-banner-icon"
-      src="https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/img/banner/credits-icon.png"
-      alt="section-icon"
-    />
-    <!-- /SECTION BANNER ICON -->
-
-    <!-- SECTION BANNER TITLE -->
-    <p class="section-banner-title">Listagem de Todas Quiz</p>
-    <!-- /SECTION BANNER TITLE -->
-
-    <!-- SECTION BANNER TEXT -->
-    <p class="section-banner-text">
-      Abaixo apresentamos a listagem de todas qui
-    </p>
-    <!-- /SECTION BANNER TEXT -->
-  </div>
+ <app-banner [bannerData]="{
+     title: 'Quiz',
+     description: 'Apaixo apresentamos a listagem das quiz'
+ }"></app-banner>
 
 
   <div class="row" style="margin-top: 10px">
     <div class="col-md-10">
       <div class="header-actions search-bar">
         <!-- SEARCH FORM -->
-        <div id="vk-search-form">
-          <div class="search-form-wrap" style="position: relative">
-            <div class="interactive-input dark">
-              <form
-                class="form"
-                method="get"
-                action="https://odindesignthemes.com/vikinger-theme/"
-              >
-                <input
-                  type="text"
-                  name="s"
-                  placeholder="Enter your search here..."
-               
-                  (keyup)="this.filterQuiz()"
-                  [(ngModel)]="this.filterQuizValue"
-                /><button style="display: none"></button>
-              </form>
-              <div class="interactive-input-icon-wrap">
-                <svg class="icon-magnifying-glass interactive-input-icon">
-                  <use href="#svg-magnifying-glass"></use>
-                </svg>
-              </div>
-            </div>
-    
-          </div>
-        </div>
+           <app-searh (EmitterValueSearch)="this.filterQuiz($event)" [placerholderText]="this.placeholderText">
+
+           </app-searh>
         <!-- /SEARCH FORM -->
       </div>
     </div>
@@ -72,7 +28,8 @@
           show_model: true,
           data_target_name: '#exampleModal',
           style: '',
-          class:'button primary login-button'
+          class:'button primary login-button',
+          name: 'Criar Quiz'
         }"></app-generic-button>
     </div>
 

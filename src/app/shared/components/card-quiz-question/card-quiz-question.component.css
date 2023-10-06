@@ -1,0 +1,71 @@
+.content-grid .grid.grid-stretched {
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+.membership-preview {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 32px 40px;
+    border-radius: 12px;
+    background-color: #FFF;
+    box-shadow: 0 0 40px 0 rgba(94,92,154, .06);
+}
+
+.membership-preview .membership-preview-price {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.membership-preview .membership-preview-description {
+    margin-top: 20px;
+    color:#3e3f5e;
+}
+
+.membership-preview .membership-preview-period, .membership-preview .membership-preview-description {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.7142857143em;
+}
+
+.membership-preview .membership-preview-period {
+    margin-top: 12px;
+}
+
+.membership-preview .membership-preview-description ul {
+    list-style: disc;
+}
+
+.membership-preview .membership-preview-description blockquote, .membership-preview .membership-preview-description ul, .membership-preview .membership-preview-description ol {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.membership-preview .membership-preview-description ul {
+    list-style: disc;
+}
+
+.button {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+    border-radius: 10px;
+    background-color: #3e3f5e;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}

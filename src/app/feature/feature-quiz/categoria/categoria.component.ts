@@ -11,6 +11,8 @@ import { LoadingJsFile } from "src/app/core/services/loadingJs/loadingJs.service
 })
 export class CategoriaComponent implements OnInit {
   public categoryData: Array<Icategory> = [];
+  public categoryToFiter: Array<Icategory> =  [];
+  public placeholderText = "procurar nome da categoria"
   constructor(
     private categoryService: CategoryService,
     private notificationService: NotificationService,
@@ -26,6 +28,7 @@ export class CategoriaComponent implements OnInit {
   getAllCategory() {
     this.categoryService.listAll().subscribe((response) => {
       this.categoryData = response?._value;
+      this.categoryToFiter= this.categoryData;
     });
   }
 
@@ -36,5 +39,10 @@ export class CategoriaComponent implements OnInit {
          this.getAllCategory()
       }
     });
+  }
+
+  public searchCategory(value: string){
+           this.categoryData= [];
+           this.categoryData= this.categoryService.searchCateryName(this.categoryToFiter, value)
   }
 }

@@ -1,0 +1,89 @@
+<div class="grid grid-3-3-3-3 medium-space centered-on-mobile grid-stretched">
+  <div class="achievement-item-box" *ngFor="let quiz_session of this.cardQuizInfo index as i">
+    <!-- TEXT STICKER -->
+    <p class="text-sticker">
+      <!-- ICON SVG -->
+      <svg class="icon-plus-small text-sticker-icon">
+        <use href="#svg-plus-small"></use>
+      </svg>
+      <!-- ICON SVG -->
+      Editar
+      <!-- TEXT STICKER IMAGE -->
+      <img
+        class="text-sticker-image"
+        src="https://odindesignthemes.com/vikinger-theme/wp-content/uploads/2020/09/Gold.png"
+        alt="gold-credit"
+      />
+      <!-- /TEXT STICKER IMAGE -->
+    </p>
+    <!-- /TEXT STICKER -->
+
+    <!-- ACHIEVEMENT ITEM BOX INFO -->
+    <div class="achievement-item-box-info">
+      <!-- ACHIEVEMENT ITEM BOX INFO TOP -->
+      <div class="achievement-item-box-info-top">
+        <!-- ACHIEVEMENT ITEM BOX IMAGE WRAP -->
+        <div class="achievement-item-box-image-wrap">
+          <!-- ACHIEVEMENT ITEM BOX IMAGE -->
+             <p class="achievement-item-box-title">{{i +1}}</p>
+          <!-- /ACHIEVEMENT ITEM BOX IMAGE -->
+        </div>
+        <!-- /ACHIEVEMENT ITEM BOX IMAGE WRAP -->
+
+        <!-- ACHIEVEMENT ITEM BOX TITLE -->
+        <p class="achievement-item-box-title">Nome </p>
+        <!-- /ACHIEVEMENT ITEM BOX TITLE -->
+
+        <!-- ACHIEVEMENT ITEM BOX TEXT -->
+        <div class="achievement-item-box-text">
+          <p>{{quiz_session.name}}</p>
+        </div>
+        <!-- /ACHIEVEMENT ITEM BOX TEXT -->
+
+        <!-- ACHIEVEMENT ITEM BOX REQUIREMENTS -->
+        <div class="achievement-item-box-requirements">
+          <!-- ACHIEVEMENT ITEM BOX SUBTITLE -->
+          <p class="achievement-item-box-subtitle">
+            Categoria Pertecente: <span>{{quiz_session.category.name}}</span>
+          </p>
+
+        </div>
+        <div class="achievement-item-box-requirements">
+            <!-- ACHIEVEMENT ITEM BOX SUBTITLE -->
+            <p class="achievement-item-box-subtitle">
+              Quiz  Pertecente: <span>{{quiz_session.quiz.name}}</span>
+            </p>
+  
+          </div>
+        <!-- /ACHIEVEMENT ITEM BOX INFO -->
+      </div>
+
+
+
+      <div class="achievement-item-box-info-bottom">
+    
+    
+
+    <!-- /PROGRESS STAT -->
+          <!-- ACHIEVEMENT ITEM BOX FOOTER -->
+      <div class="achievement-item-box-footer ">
+                <!-- ACHIEVEMENT ITEM BOX FOOTER TITLE -->
+        <p class="achievement-item-box-footer-title">QUIZ SESSÃO FOI CRIANDA EM:</p>
+        <!-- /ACHIEVEMENT ITEM BOX FOOTER TITLE -->
+        
+              <!-- USER AVATAR LIST -->
+        <div class="user-avatar-list">
+        
+            {{quiz_session.createdAt| date: 'MM-dd-yyyy'}}
+
+
+<!-- /USER AVATAR -->        </div>
+        <!-- /USER AVATAR LIST -->
+            </div>
+      <!-- /ACHIEVEMENT ITEM BOX FOOTER -->
+    </div>
+    </div>
+  </div>
+  
+</div>
+

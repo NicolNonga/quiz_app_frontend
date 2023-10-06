@@ -1,0 +1,59 @@
+<div class="grid grid-4-4-4 grid-stretched centered-on-mobile">
+  <!-- MEMBERSHIP PREVIEW -->
+  <div
+    class="membership-preview"
+    *ngFor="let quiz of this.quizQuestionData; index as i"
+  >
+    <!-- MEMBERSHIP PREVIEW INFO -->
+    <div class="membership-preview-info">
+      <!-- MEMBERSHIP PREVIEW PRICE -->
+      <p class="membership-preview-price">
+        <span class="membership-preview-price-currency"></span> Pergunta Nº
+        {{ i + 1 }} - {{ quiz?.quizQuestion?.question_text }}
+      </p>
+      <!-- /MEMBERSHIP PREVIEW PRICE -->
+
+      <!-- MEMBERSHIP PREVIEW NAME -->
+      <p class="membership-preview-name"></p>
+      <!-- /MEMBERSHIP PREVIEW NAME -->
+
+      <!-- MEMBERSHIP PREVIEW PERIOD -->
+      <p class="membership-preview-period">
+        <strong></strong
+        >.
+      </p>
+      <!-- /MEMBERSHIP PREVIEW PERIOD -->
+
+      <!-- MEMBERSHIP PREVIEW DESCRIPTION -->
+      <div class="membership-preview-description">
+        <p class="membership-preview-price">
+            <span class="membership-preview-price-currency"></span>
+            Opções de Respostas
+          </p>
+
+          <p class="membership-preview-price center"  *ngIf="quiz?.quizOption.length === 0">
+            <span class="membership-preview-price-currency" style="margin-left: 100px;"></span>  Sem opções  <i style="margin-left: 5px;" class="bi bi-emoji-frown"></i>
+          </p>
+
+        <ul>
+          <li *ngFor="let option of quiz?.quizOption">
+            {{ option?.option_text }}  <i [ngClass]="{'bi bi-check-circle text-success': option?.is_correct , 'bi bi-plus-circle-fill text-danger': !option?.is_correct}"></i>
+          </li>
+        </ul>
+      </div>
+      <!-- /MEMBERSHIP PREVIEW DESCRIPTION -->
+    </div>
+
+    <!-- /MEMBERSHIP PREVIEW INFO -->
+
+    <!-- MEMBERSHIP PREVIEW INFO -->
+    <div class="membership-preview-info">
+      <!-- MEMBERSHIP PREVIEW BUTTON -->
+      <a class="membership-preview-button button secondary" href=""
+        >Adicionar Opções de Perguntas</a
+      >
+      <!-- /MEMBERSHIP PREVIEW BUTTON -->
+    </div>
+    <!-- /MEMBERSHIP PREVIEW INFO -->
+  </div>
+</div>

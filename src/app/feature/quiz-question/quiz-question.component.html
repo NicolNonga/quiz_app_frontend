@@ -1,0 +1,43 @@
+<div
+  class="content-grid"
+  style="
+    transform: translate(510px, 0px);
+    margin: 0px;
+    transition: transform 0.4s ease-in-out 0s;
+  "
+>
+<app-banner  [bannerData]="{
+    title: 'Quiz Question',
+    description:'Abaixo listamos a quiz Question'
+}">
+
+
+
+
+</app-banner>
+<div class="row" style="margin-top: 10px">
+    <div class="col-md-10">
+      <div class="header-actions search-bar">
+        <!-- SEARCH FORM -->
+           <app-searh  [placerholderText]="this.placeholderText">
+
+           </app-searh>
+        <!-- /SEARCH FORM -->
+      </div>
+    </div>
+    <div class="col-md-2">
+        <app-generic-button [proprietyButton]="{
+          show_model: true,
+          data_target_name: '#exampleModal',
+          style: '',
+          class:'button primary login-button',
+          name: 'Criar Quiz Pergunta'
+        }"></app-generic-button>
+    </div>
+
+  </div>
+  <app-card-quiz-question>
+
+  </app-card-quiz-question>
+
+</div>

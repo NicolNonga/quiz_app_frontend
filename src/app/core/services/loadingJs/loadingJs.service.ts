@@ -9,7 +9,7 @@ export class LoadingJsFile{
   }
 
 
-  public loadingMainJs(urls: string){
+  public loadingMainJs(urls: string= 'assets/js/app.bundle.min.js'){
               let node = document.createElement('script');
               node.src= urls;
               node.type= 'text/javascript';

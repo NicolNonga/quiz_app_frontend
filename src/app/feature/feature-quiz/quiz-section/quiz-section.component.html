@@ -1,0 +1,40 @@
+<div class="content-grid"  style="
+transform: translate(510px, 0px);
+margin: 0px;
+transition: transform 0.4s ease-in-out 0s;
+">
+
+ <app-banner [bannerData]="{
+    title: 'Quiz Sessão',
+    description:'Abaixo listamos todas a quiz sessões'
+ }">
+
+ </app-banner>
+
+ <div class="row" style="margin-top: 10px;">
+
+     <div class="col-md-10">
+          <app-searh [placerholderText]="this.placeholderText" (EmitterValueSearch)="this.searchByName($event)">
+
+          </app-searh>
+     </div>
+     <div class="col-md-2">
+        <app-generic-button [proprietyButton]="{
+          show_model: true,
+          data_target_name: '#exampleModal',
+          style: '',
+          class:'button primary login-button',
+          name: 'Criar Sessão'
+        }"></app-generic-button>
+    </div>
+ </div>
+ <app-card-quiz-session [cardQuizInfo]="this.quizSectionData"></app-card-quiz-session>
+</div>
+
+
+<app-create-or-edit-quiz-section 
+[titleModal]="this.titleModalCriar"
+[category]="this.category"
+ (quizSectionEvent)="this.createQuizSection($event)"
+[quiz]="this.quiz"
+></app-create-or-edit-quiz-section>

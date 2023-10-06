@@ -18,7 +18,6 @@ import { AuthenticationComponent } from './components/authentication/authenticat
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule,
     SharedModule,
     FeatureAuthenticationRoutingModule
   ]
