@@ -45,6 +45,7 @@ export class QuizQuestionComponent implements OnInit {
          this.quizQuestionService.createQuizQuestion(event).subscribe((response)=>{
           if(response){
              this.notificationService.showSucess("Quiz Question criado com sucesso")
+             this.getAllQuizQuestion()
           }
          })
   }
