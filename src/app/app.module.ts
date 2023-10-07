@@ -24,7 +24,8 @@ import { SharedModule } from './shared/shared.module';
 import { QuizSectionComponent } from './feature/feature-quiz/quiz-section/quiz-section.component';
 import { CreateOrEditQuizSectionComponent } from './feature/feature-quiz/quiz-section/create-or-edit-quiz-section/create-or-edit-quiz-section.component';
 import { QuizQuestionComponent } from './feature/quiz-question/quiz-question.component';
-import { DasboardQuizCountComponent } from './dasboard-quiz-count/dasboard-quiz-count.component';
+import { DasboardQuizCountComponent } from './feature/dasboard-quiz-count/dasboard-quiz-count.component';
+import { CreateOrEditQuizQuestionComponent } from './create-or-edit-quiz-question/create-or-edit-quiz-question.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { DasboardQuizCountComponent } from './dasboard-quiz-count/dasboard-quiz-
     CreateOrEditQuizSectionComponent,
     QuizSectionComponent,
     QuizQuestionComponent,
-    DasboardQuizCountComponent
+    DasboardQuizCountComponent,
+    CreateOrEditQuizQuestionComponent
     
 
   ],

@@ -1,0 +1,8 @@
+.nenhum_registo{
+    position: absolute !important;
+    /* margin: auto; */
+    text-align: center;
+    /* display: flex; */
+    /* margin-left: auto; */
+    margin-left: 300px !important;
+}

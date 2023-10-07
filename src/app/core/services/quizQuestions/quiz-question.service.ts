@@ -20,4 +20,8 @@ export class QuizQuestionService {
         return this.http.get(`${environment.app_url}/quiz_option/by_quiz_question?quiz_question_id=${quizQuestionId}`)
     }
 
+    createQuizQuestion(data: any):Observable<any>{
+        return this.http.post(`${environment.app_url}/quiz_question`, data)
+    }
+
 }

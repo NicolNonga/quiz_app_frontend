@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from '../core/services/dashboard-quiz/dashboard-quiz-service';
-import { LoadingJsFile } from '../core/services/loadingJs/loadingJs.service';
+import { DashboardService } from '../../core/services/dashboard-quiz/dashboard-quiz-service';
+import { LoadingJsFile } from '../../core/services/loadingJs/loadingJs.service';
 
 @Component({
   selector: 'app-dasboard-quiz-count',

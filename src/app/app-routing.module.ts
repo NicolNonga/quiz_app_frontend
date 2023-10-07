@@ -4,7 +4,7 @@ import { QuizComponent } from "./feature/feature-quiz/quiz/quiz.component";
 import { CategoriaComponent } from "./feature/feature-quiz/categoria/categoria.component";
 import { QuizSectionComponent } from "./feature/feature-quiz/quiz-section/quiz-section.component";
 import { QuizQuestionComponent } from "./feature/quiz-question/quiz-question.component";
-import { DasboardQuizCountComponent } from "./dasboard-quiz-count/dasboard-quiz-count.component";
+import { DasboardQuizCountComponent } from "./feature/dasboard-quiz-count/dasboard-quiz-count.component";
 // import our components
 
 const routes: Routes = [

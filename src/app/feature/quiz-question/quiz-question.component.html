@@ -41,3 +41,7 @@
   </app-card-quiz-question>
 
 </div>
+
+<app-create-or-edit-quiz-question [quizSection]="this.quizSessionData" (quizQuestionEvent)="this.createQuizQuestion($event)">
+  
+</app-create-or-edit-quiz-question>
