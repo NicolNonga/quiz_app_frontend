@@ -26,6 +26,7 @@ import { CreateOrEditQuizSectionComponent } from './feature/feature-quiz/quiz-se
 import { QuizQuestionComponent } from './feature/quiz-question/quiz-question.component';
 import { DasboardQuizCountComponent } from './feature/dasboard-quiz-count/dasboard-quiz-count.component';
 import { CreateOrEditQuizQuestionComponent } from './create-or-edit-quiz-question/create-or-edit-quiz-question.component';
+import { CreateOrEditQuizOptionComponent } from './feature/quiz-question/create-or-edit-quiz-option/create-or-edit-quiz-option.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { CreateOrEditQuizQuestionComponent } from './create-or-edit-quiz-questio
     QuizSectionComponent,
     QuizQuestionComponent,
     DasboardQuizCountComponent,
-    CreateOrEditQuizQuestionComponent
+    CreateOrEditQuizQuestionComponent,
+    CreateOrEditQuizOptionComponent
     
 
   ],

@@ -12,13 +12,26 @@
           <form [formGroup]="this.categoryForm">
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">Nome :</label>
-              <input type="text" formControlName="name" class="form-control" id="recipient-name">
+              <input type="text" [ngClass]="{ 'is-invalid': submitted && f['name'].errors, 'is-valid': f['name'].touched && !f['name'].errors }" formControlName="name" class="form-control" id="recipient-name">
+            </div>
+            <div *ngIf="submitted && f['name'].errors"  style="color:brown; margin-left:10px">
+              <div *ngIf="f['name']?.errors">O campo nome é obrigatório</div>
             </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary btn-sm" (click)="this.submitForm()">Criar Categoria</button>
+        <div class="modal-footer" style="width: 400px;">
+          <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-sm" (click)="this.submitForm()">Criar Categoria</button>
+               </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div>
+
+        
         </div>
       </div>
     </div>

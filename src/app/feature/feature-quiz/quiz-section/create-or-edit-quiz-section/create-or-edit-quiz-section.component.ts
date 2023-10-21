@@ -12,9 +12,10 @@ import { Icategory } from '../../categoria/interface/category.interface';
 })
 export class CreateOrEditQuizSectionComponent  extends DumbComponent {
 
-  @Output() quizSectionEvent = new EventEmitter<IQuizSectionDTO> ()
-  public quizSectionForm!: FormGroup;
+  @Output() quizSectionEvent = new EventEmitter<IQuizSectionDTO> ();
 
+  public quizSectionForm!: FormGroup;
+  public submitted: boolean= false;
   @Input() titleModal: string = ""
   @Input() category!:Icategory []
   @Input() quiz!: QuizInterface []
@@ -28,13 +29,23 @@ export class CreateOrEditQuizSectionComponent  extends DumbComponent {
   
   }
 
+  get f(){
+    return this.quizSectionForm.controls
+  }
+
     submitForm(){
+       this.submitted= true
       if(this.quizSectionForm.invalid){
         return
       }
       this.quizSectionEvent.emit(this.quizSectionForm.value)
-      console.log(this.quizSectionForm.value)
+      this.submitted= false
       this.quizSectionForm.reset()
       
+    }
+
+    resetInput(){
+      this.submitted= false
+      this.quizSectionForm.reset();
     }
 }

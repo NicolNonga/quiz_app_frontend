@@ -1,67 +1,119 @@
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{this.titleModal}}</h5>
-     <!--      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ this.titleModal }}
+        </h5>
+        <!--      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> -->
-        </div>
-        <div class="modal-body">
-          <form [formGroup]="this.quizSectionForm">
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Nome :</label>
-              <input type="text" formControlName="name" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-row split">
-                <div class="form-item">
-                  <div class="form-select">
-                    <label>Categoria</label
-                    ><select name="category" formControlName="category_id">
-                      <option value="">Selectiona Categoria</option>
-                      <option [value]="category.id" *ngFor="let category of this.category">
-                        {{category.name
-                        }}
-                      </option>
-                      </select
-                    ><svg class="icon-small-arrow form-select-icon">
-                      <use href="#svg-small-arrow"></use>
-                    </svg>
-                  </div>
-                </div>
-            
-              </div>
-
-              <div class="form-row split">
-                <div class="form-item">
-                  <div class="form-select">
-                    <label>Quiz</label
-                    ><select name="quiz" formControlName="quiz_id">
-                      <option value="">Selectiona  Quiz</option>
-                      <option [value]="quiz.id" *ngFor="let quiz of this.quiz">
-                        {{quiz.name
-                        }}
-                      </option>
-                      </select
-                    ><svg class="icon-small-arrow form-select-icon">
-                      <use href="#svg-small-arrow"></use>
-                    </svg>
-                  </div>
-                </div>
-            
-              </div>
-          </form>
-        </div>
-        <div class="modal-footer">
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="this.quizSectionForm">
+          <div class="container">
             <div class="row">
-                
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    [ngClass]="{ 'is-invalid': submitted && f['name'].errors, 'is-valid': f['name'].touched && !f['name'].errors }"
+                    formControlName="name"
+
+                    class="form-control"
+                    placeholder="Nome da quiz sessão"
+                    id="recipient-name"
+                  />
+                  <div *ngIf="submitted && f['name'].errors"  style="color:brown; margin-left:10px">
+                    <div *ngIf="f['name']?.errors">O campo nome é obrigatório</div>
+                  </div>
+                </div>
+          
+              </div>
+              <div class="col-md-4">
+                <div class="form">
+                  <div class="form-item">
+                    <div class="form-select">
+                      <label>Categoria</label
+                      ><select name="category"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f['category_id'].errors, 'is-valid': f['category_id'].touched && !f['category_id'].errors }" formControlName="category_id">
+                        <option value="">Selectiona Categoria</option>
+                        <option
+                          [value]="category.id"
+                          *ngFor="let category of this.category"
+                        >
+                          {{ category.name }}
+                        </option></select
+                      ><svg class="icon-small-arrow form-select-icon">
+                        <use href="#svg-small-arrow"></use>
+                      </svg>
+                    </div>
+                    <div *ngIf="submitted && f['category_id'].errors"  style="color:brown; margin-left:10px">
+                      <div *ngIf="f['category_id']?.errors">O campo Categoria é obrigatório</div>
+                    </div>
+                  </div>
+             
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-row split">
+                  <div class="form-item">
+                    <div class="form-select">
+                      <label>Quiz</label
+                      ><select name="quiz" formControlName="quiz_id" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['quiz_id'].errors, 'is-valid': f['quiz_id'].touched && !f['quiz_id'].errors }">
+                        <option value="">Selectiona Quiz</option>
+                        <option
+                          [value]="quiz.id"
+                          *ngFor="let quiz of this.quiz"
+                        >
+                          {{ quiz.name }}
+                        </option></select
+                      ><svg class="icon-small-arrow form-select-icon">
+                        <use href="#svg-small-arrow"></use>
+                      </svg>
+                      <div *ngIf="submitted && f['quiz_id'].errors"  style="color:brown; margin-left:10px">
+                        <div *ngIf="f['quiz_id']?.errors">O campo Quiz  é obrigatório</div>
+                      </div>
+                    </div>
+         
+                  </div>
+                </div>
+              </div>
             </div>
-        
-          <button type="button" class="btn btn-primary btn-sm" (click)="this.submitForm()">Criar Quiz</button>
-          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Fechar</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                (click)="this.submitForm()"
+              >
+                Criar Quiz
+              </button>
+            </div>
+
+            <div class="col-md-6">
+              <button
+              (click)="this.resetInput()"
+                type="button"
+                class="btn btn-danger btn-sm"
+                data-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

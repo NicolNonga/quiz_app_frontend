@@ -13,7 +13,7 @@ import { CreateOrEditQuizSectionComponent } from './quiz-section/create-or-edit-
   declarations: [
     
   
-    CreateOrEditCategoriaComponent,
+    
             
            
   ],

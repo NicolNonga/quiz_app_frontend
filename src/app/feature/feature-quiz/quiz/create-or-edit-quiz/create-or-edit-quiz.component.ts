@@ -12,7 +12,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CreateOrEditQuizComponent  extends DumbComponent {
   @Input () quizData! : QuizDTO
   @Output()  quizEvent = new  EventEmitter <QuizDTO> ()
-  quizform!: FormGroup
+  quizform!: FormGroup;
+  submitted: boolean= false
   constructor(){
     super()
 
@@ -25,14 +26,20 @@ export class CreateOrEditQuizComponent  extends DumbComponent {
 
   submitForm(){
 
-   
+    this.submitted= true
     if(this.quizform.invalid){
       return 
     }
-    console.log(this.quizform.value)
+
+    this.submitted= false
 
      this.quizEvent.emit(this.quizform.value)
      this.quizform.reset()
+     
+  }
+
+  get f() {
+    return this.quizform.controls
   }
 
 

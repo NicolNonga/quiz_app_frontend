@@ -13,6 +13,7 @@ export class CreateOrEditCategoriaComponent extends DumbComponent {
              @Input () category ! : ICategoryDTO
              @Output () categoryEvent = new EventEmitter<ICategoryDTO> ()
              public categoryForm!: FormGroup
+            public submitted:boolean= false
   constructor() {
     super()
     this.categoryForm= new FormGroup({
@@ -20,13 +21,19 @@ export class CreateOrEditCategoriaComponent extends DumbComponent {
     })
   }
 
+  get f() {
+    return this.categoryForm.controls
+  }
 
     submitForm(){
+      this.submitted= true
       if(this.categoryForm.invalid){
+      
         return
       }
       this.categoryEvent.emit(this.categoryForm.value)
       this.categoryForm.reset()
+      this.submitted= false
     }
 
 

@@ -1,6 +1,10 @@
 /* 
 
 @import url(assets/css/styles.min.css); */
+@import url(assets/css/vendor/bootstrap.min.css);
+@import url(assets/css/vendor/simplebar.css);
+@import url(assets/css/vendor/tiny-slider.css);
+
 body {
     background-color: #f8f8fb  !important;
 }
@@ -137,10 +141,12 @@ credits, .icon-ranks, .icon-admin-crown, .icon-mod-shield, .icon-ban, .icon-remo
     background-color: #23d2e2 !important;
     box-shadow: 4px 7px 12px 0 rgba(35,210,226, .2) !important;
 }
-@import url(assets/css/vendor/bootstrap.min.css);
-@import url(assets/css/vendor/simplebar.css);
-@import url(assets/css/vendor/tiny-slider.css)
 
-
- 
+.modal-content{
+    width: 900px  !important;
+}
+.modal-footer{
+    width: 400px !important;
+    float: right !important;
+}
  
