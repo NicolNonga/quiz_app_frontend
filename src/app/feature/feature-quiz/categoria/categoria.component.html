@@ -83,15 +83,18 @@
       <!-- /POINT REWARD BOX INFO -->
 
       <!-- TEXT STICKER -->
-      <p class="text-sticker" style="cursor: pointer;"> 
-        <!-- ICON SVG -->
-        <svg class="icon-plus-small text-sticker-icon"></svg>
-        <!-- ICON SVG -->
-         Editar
-        <!-- TEXT STICKER IMAGE -->
-        <i class="fa fa-edit"></i>
-        <!-- /TEXT STICKER IMAGE -->
-      </p>
+      <div>
+        <app-generic-button [proprietyButton]="{
+          show_model: true,
+          data_target_name: '#exampleModal',
+          style: 'padding-left: 10px; padding-right: 10px;width: 54px;margin-left: 50px;',
+          class:'button primary',
+          name: 'Editar'
+        }" (click)="this.updateCategory(category)">
+       <i class="fa fa-users"></i>
+      </app-generic-button>
+      </div>
+
       <!-- /TEXT STICKER -->
 
       <!-- SECTION HEADER -->
@@ -102,4 +105,4 @@
 
 
 
- <app-create-or-edit-categoria (categoryEvent)="this.createCategory($event)"></app-create-or-edit-categoria>
+ <app-create-or-edit-categoria (updateCategoryEvent)="this.submiteUpdateCategory($event)" (categoryEvent)="this.createCategory($event)"></app-create-or-edit-categoria>

@@ -20,6 +20,11 @@ export class CategoryService {
      create(category: ICategoryDTO): Observable<any>{
         return this.http.post(`${environment.app_url}/category`, category)
      }
+
+     public update(category:Icategory): Observable<any>{
+        return this.http.put(`${environment.app_url}/category/${category.id}`, {name: category.name})
+
+     }
     
      public searchCateryName(categoryArray: Icategory [], categoryName: string){
         let categoryFilter: Array<Icategory> =  [];

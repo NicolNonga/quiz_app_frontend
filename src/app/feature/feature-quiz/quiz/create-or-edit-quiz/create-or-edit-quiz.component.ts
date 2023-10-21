@@ -1,6 +1,6 @@
 import { Component, Input, OnInit,  EventEmitter, Output } from '@angular/core';
 import { DumbComponent } from 'src/app/core/components/dumb-component/dumb-component.compoent';
-import { QuizDTO } from '../interface/quiz.interface';
+import { QuizDTO, QuizInterface } from '../interface/quiz.interface';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -14,10 +14,12 @@ export class CreateOrEditQuizComponent  extends DumbComponent {
   @Output()  quizEvent = new  EventEmitter <QuizDTO> ()
   quizform!: FormGroup;
   submitted: boolean= false
+  isUpdate: boolean= false
   constructor(){
     super()
 
     this.quizform= new FormGroup({
+      id:  new FormControl([{ value: null, disabled: true }]),
       name : new FormControl('', [Validators.required]),
       topic: new FormControl('', Validators.required)
     })
@@ -42,6 +44,11 @@ export class CreateOrEditQuizComponent  extends DumbComponent {
     return this.quizform.controls
   }
 
+   public getQuiz(quiz: QuizInterface){
+    
+    this.quizform.patchValue({...quiz})
+    this.isUpdate= true;
+   }
 
 
 
