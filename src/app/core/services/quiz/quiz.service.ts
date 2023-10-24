@@ -21,6 +21,11 @@ export class QuizService {
     return this.http.post(`${environment.app_url}/quiz`, quizData);
   }
 
+  edit(quizValue: QuizInterface):Observable<any>{
+    return this.http.put(`${environment.app_url}/quiz/${quizValue.id}`, {name: quizValue.name, topic: quizValue.topic})
+
+  }
+
   filterQuiz(
     quizArray: QuizInterface[],
     quiz_nome: string

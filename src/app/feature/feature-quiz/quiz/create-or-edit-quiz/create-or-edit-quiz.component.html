@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Criar Nova Quiz</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
       <!--     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> -->
@@ -32,11 +32,11 @@
          
               <div class="col-md-6">
                 <button type="button" *ngIf="!this.isUpdate" class="btn btn-primary btn-sm" (click)="this.submitForm()">Criar Quiz</button>
-                <button type="button" *ngIf="this.isUpdate" class="btn btn-primary btn-sm" (click)="this.submitForm()">Actualizar Quiz</button>
+                <button type="button" *ngIf="this.isUpdate" class="btn btn-primary btn-sm" (click)="this.editQuiz()">Actualizar Quiz</button>
               </div>
 
               <div class="col-md-6">
-                <button type="button"  class="btn btn-danger btn-sm" data-dismiss="modal">Fechar</button>
+                <button type="button"  class="btn btn-danger btn-sm" (click)="this.resetForm()" data-dismiss="modal">Fechar</button>
               </div>
               
             

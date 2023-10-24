@@ -83,17 +83,15 @@
       <!-- /POINT REWARD BOX INFO -->
 
       <!-- TEXT STICKER -->
-      <div>
-        <app-generic-button [proprietyButton]="{
-          show_model: true,
-          data_target_name: '#exampleModal',
-          style: 'padding-left: 10px; padding-right: 10px;width: 54px;margin-left: 50px;',
-          class:'button primary',
-          name: 'Editar'
-        }" (click)="this.updateCategory(category)">
-       <i class="fa fa-users"></i>
-      </app-generic-button>
-      </div>
+      <p class="text-sticker" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" (click)="this.updateCategory(category)">
+        <!-- ICON SVG -->
+        <svg class="icon-plus-small text-sticker-icon"></svg>
+        <!-- ICON SVG -->
+        Editar
+        <!-- TEXT STICKER IMAGE -->
+        <i class="fa fa-edit"></i>
+        <!-- /TEXT STICKER IMAGE -->
+      </p>
 
       <!-- /TEXT STICKER -->
 

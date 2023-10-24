@@ -72,5 +72,14 @@ public buttonProprietis: IGericButton = {
   
       this.createOrEditQuiz.getQuiz(quiz)
     }
+
+    editQuiz(event: QuizInterface){
+      this.quizService.edit(event).subscribe((response)=>{
+        if(response){
+          this.notificationService.showSucess('Quiz Actualizado com sucesso')
+          this.getAllQuiz()
+        }
+      })
+    }
 }
 
