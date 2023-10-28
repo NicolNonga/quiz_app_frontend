@@ -39,18 +39,18 @@
     right: -6px;
 }
 .text-sticker {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-align: center;
     align-items: center;
     height: 32px;
     padding: 0 14px;
-    border-radius: 200px;
-    background-color: var(--color-box-over-box-light-background);
-    box-shadow: var(--color-overbox-shadow);
+    border-radius: 0;
+    background-color: #ffc10787;
+    box-shadow: 3px 5px 20px 0 rgba(94,92,154, .12);
     font-size: 0.875rem;
     font-weight: 700;
     line-height: 32px;
+    color: black;
+    margin-left: 15px;
 }
 .text-sticker .text-sticker-icon {
     margin-right: 6px;

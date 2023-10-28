@@ -49,11 +49,17 @@
     <!-- MEMBERSHIP PREVIEW INFO -->
     <div class="membership-preview-info">
       <!-- MEMBERSHIP PREVIEW BUTTON -->
-      <a class="membership-preview-button button secondary" href=""
-        >Adicionar Opções de Perguntas</a
-      >
+      <app-generic-button [proprietyButton]="{
+        show_model: true,
+        data_target_name: '#addQuestion',
+        style: '',
+        class:'button primary login-button',
+        name: 'Adicionar Respostas'
+      }" (click)="this.setQuizQuestionId(quiz)"></app-generic-button>
       <!-- /MEMBERSHIP PREVIEW BUTTON -->
     </div>
     <!-- /MEMBERSHIP PREVIEW INFO -->
   </div>
 </div>
+
+

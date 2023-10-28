@@ -24,4 +24,8 @@ export class QuizQuestionService {
         return this.http.post(`${environment.app_url}/quiz_question`, data)
     }
 
+    createQuestionOption(option:any): Observable<any>{
+             return this.http.post(`${environment.app_url}/quiz_option`, option)
+    }
+
 }

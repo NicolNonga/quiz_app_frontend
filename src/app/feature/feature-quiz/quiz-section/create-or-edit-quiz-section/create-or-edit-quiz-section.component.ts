@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { QuizDTO, QuizInterface } from '../../quiz/interface/quiz.interface';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { DumbComponent } from 'src/app/core/components/dumb-component/dumb-component.compoent';
-import { IQuizSectionDTO } from '../interfaces/quiz_section.interfaces';
+import { IQuizSection, IQuizSectionDTO } from '../interfaces/quiz_section.interfaces';
 import { Icategory } from '../../categoria/interface/category.interface';
 
 @Component({
@@ -13,16 +13,19 @@ import { Icategory } from '../../categoria/interface/category.interface';
 export class CreateOrEditQuizSectionComponent  extends DumbComponent {
 
   @Output() quizSectionEvent = new EventEmitter<IQuizSectionDTO> ();
+  @Output () updateQuizSectionEvent = new EventEmitter<IQuizSection> ();
 
   public quizSectionForm!: FormGroup;
   public submitted: boolean= false;
   @Input() titleModal: string = ""
   @Input() category!:Icategory []
-  @Input() quiz!: QuizInterface []
+  @Input() quiz!: QuizInterface [];
+  public isUpdated: boolean= false
   constructor() { 
     super()
     this.quizSectionForm = new FormGroup({
       name: new FormControl(null, [Validators.required]),
+      id: new FormControl([{value: null, disabled: true}]),
       quiz_id: new FormControl(null, Validators.required),
       category_id : new FormControl(null, [Validators.required])
     })
@@ -47,5 +50,27 @@ export class CreateOrEditQuizSectionComponent  extends DumbComponent {
     resetInput(){
       this.submitted= false
       this.quizSectionForm.reset();
+    }
+
+    setQuizSession(quizSession:IQuizSection){
+      this.quizSectionForm.patchValue({
+        ...quizSession
+      })
+      this.isUpdated= true
+      this.titleModal="Editar Quiz Sessão"
+    }
+
+    resetForm() {
+      this.titleModal= "Criar Quiz Sessão"
+      this.quizSectionForm.reset();
+      this.isUpdated= false
+    }
+
+    updateQuizSectio() {
+      if(this.quizSectionForm.invalid){
+        alert("please  Quiz formulario invalido")
+        return
+      }
+      this.updateQuizSectionEvent.emit(this.quizSectionForm.value)
     }
 }

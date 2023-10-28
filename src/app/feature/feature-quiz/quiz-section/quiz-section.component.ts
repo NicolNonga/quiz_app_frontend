@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { QuizSectionService } from "src/app/core/services/quiz-section/quiz-section.service";
 import { IQuizSection, IQuizSectionDTO } from "./interfaces/quiz_section.interfaces";
 import { LoadingJsFile } from "src/app/core/services/loadingJs/loadingJs.service";
@@ -8,6 +8,7 @@ import { NotificationService } from "src/app/core/services/notification/notifica
 import { Icategory } from "../categoria/interface/category.interface";
 import { QuizInterface } from "../quiz/interface/quiz.interface";
 import { __values } from "tslib";
+import { CreateOrEditQuizSectionComponent } from "./create-or-edit-quiz-section/create-or-edit-quiz-section.component";
 
 @Component({
   selector: "app-quiz-section",
@@ -21,6 +22,8 @@ export class QuizSectionComponent implements OnInit {
   public titleModalCriar: string = "Criar Quiz Sessão";
   public category!: Icategory[];
   public quiz!: QuizInterface[];
+  @ViewChild(CreateOrEditQuizSectionComponent, {static: true})
+  public createOrEditQuizSession!:CreateOrEditQuizSectionComponent
   constructor(
     public quizSectionService: QuizSectionService,
     public quizService: QuizService,
@@ -73,4 +76,20 @@ export class QuizSectionComponent implements OnInit {
       }
     })
   }
+
+  setEditarQuizSession(quizSession: IQuizSection){
+    console.log(quizSession)
+    this.createOrEditQuizSession.setQuizSession(quizSession)
+  }
+
+  updateQuizSection(quizSection: IQuizSection){
+    
+      this.quizSectionService.update(quizSection).subscribe((response)=>{
+        if(response){
+          this.notificationService.showSucess('Quiz sessão Actualizado')
+          this.listAllQuizSection()
+        }
+      })
+  }
 }
+

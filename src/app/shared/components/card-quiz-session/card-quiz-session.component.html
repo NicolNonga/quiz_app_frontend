@@ -1,19 +1,13 @@
 <div class="grid grid-3-3-3-3 medium-space centered-on-mobile grid-stretched">
   <div class="achievement-item-box" *ngFor="let quiz_session of this.cardQuizInfo index as i">
     <!-- TEXT STICKER -->
-    <p class="text-sticker">
+    <p class="text-sticker" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" (click)="this.setQuizSession(quiz_session)" >
       <!-- ICON SVG -->
-      <svg class="icon-plus-small text-sticker-icon">
-        <use href="#svg-plus-small"></use>
-      </svg>
+      <svg class="icon-plus-small text-sticker-icon"></svg>
       <!-- ICON SVG -->
       Editar
       <!-- TEXT STICKER IMAGE -->
-      <img
-        class="text-sticker-image"
-        src="https://odindesignthemes.com/vikinger-theme/wp-content/uploads/2020/09/Gold.png"
-        alt="gold-credit"
-      />
+      <i class="fa fa-edit"></i>
       <!-- /TEXT STICKER IMAGE -->
     </p>
     <!-- /TEXT STICKER -->

@@ -36,7 +36,7 @@
     </div>
 
   </div>
-  <app-card-quiz-question>
+  <app-card-quiz-question (quizQuestionID)="setQuizQuestionId($event)">
 
   </app-card-quiz-question>
 
@@ -45,3 +45,4 @@
 <app-create-or-edit-quiz-question [quizSection]="this.quizSessionData" (quizQuestionEvent)="this.createQuizQuestion($event)">
   
 </app-create-or-edit-quiz-question>
+<app-add-answers-quiz-question [quiz_section]="this.quizQuestion_id" (answerEvents)="this.addOption($event)" ></app-add-answers-quiz-question>
