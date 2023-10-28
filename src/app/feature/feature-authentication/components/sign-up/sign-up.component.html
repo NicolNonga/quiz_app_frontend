@@ -1,15 +1,13 @@
-<form class="form">
+
   <!-- FORM ROW -->
   <div class="form-row">
     <!-- FORM ITEM -->
-    <div class="form-item">
-      <!-- FORM INPUT -->
-  
-      <!-- /FORM INPUT -->
-    </div>
-    <!-- /FORM ITEM -->
+
   </div>
   <!-- /FORM ROW -->
+
+  <div  [formGroup]="signForm">
+
 
   <!-- FORM ROW -->
   <div class="form-row">
@@ -17,8 +15,14 @@
     <div class="form-item">
       <!-- FORM INPUT -->
       <div class="form-input">
-        <label for="register-username">nome do utilizador</label>
-        <input type="text" id="register-username" name="register_username">
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username"  [ngClass]="{ 'is-invalid': submitted && this.f['username'].errors, 'is-valid': f['username'].touched && !f['username'].errors }" formControlName="username" class="is-invalid" name="login_username">
+        <div *ngIf="this.submitted && this.f['username'].errors" class="invalid-feedback">
+          <div *ngIf=" this.f['username'].errors['required']">
+               por favor informa o username
+          </div>
+
+        </div>
       </div>
       <!-- /FORM INPUT -->
     </div>
@@ -32,8 +36,14 @@
     <div class="form-item">
       <!-- FORM INPUT -->
       <div class="form-input">
-        <label for="register-password">Password</label>
-        <input type="password" id="register-password" name="register_password">
+        <label for="login-password">Password</label>
+        <input type="password"  [ngClass]="{ 'is-invalid': submitted && this.f['password'].errors, 'is-valid': f['password'].touched && !f['password'].errors }" formControlName="password" class="is-invalid" id="login-password" name="login_password">
+        <div *ngIf="this.submitted && this.f['password'].errors" class="invalid-feedback">
+          <div *ngIf=" this.f['password'].errors['required']">
+            por favor informa a password
+          </div>
+
+        </div>
       </div>
       <!-- /FORM INPUT -->
     </div>
@@ -42,18 +52,7 @@
   <!-- /FORM ROW -->
 
   <!-- FORM ROW -->
-  <div class="form-row">
-    <!-- FORM ITEM -->
-    <div class="form-item">
-      <!-- FORM INPUT -->
-      <div class="form-input">
-        <label for="register-password-repeat">Repeat Password</label>
-        <input type="password" id="register-password-repeat" name="register_password_repeat">
-      </div>
-      <!-- /FORM INPUT -->
-    </div>
-    <!-- /FORM ITEM -->
-  </div>
+
   <!-- /FORM ROW -->
 
   <!-- FORM ROW -->
@@ -74,15 +73,15 @@
   </div>
   <!-- /FORM ROW -->
 
+</div>
   <!-- FORM ROW -->
   <div class="form-row">
     <!-- FORM ITEM -->
     <div class="form-item">
       <!-- BUTTON -->
-      <button class="button medium primary">Register Now!</button>
+      <button class="button medium secondary" (click)="this.signup()">Cadastrar-se!</button>
       <!-- /BUTTON -->
     </div>
     <!-- /FORM ITEM -->
   </div>
   <!-- /FORM ROW -->
-</form>
