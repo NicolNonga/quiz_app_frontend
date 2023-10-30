@@ -24,7 +24,7 @@
                       <div class="form-select">
                         <label>Quiz Sessão</label
                         ><select name="quiz"  [(ngModel)]="quizSection_id">
-                          <option value="">Selectiona  Quiz Sessão</option>
+                          <option value="">Quiz Sessão</option>
                           <option *ngFor="let quizSectionData of this.quizSection" [value]="quizSectionData.id">
                             {{quizSectionData.name}}
                           </option>
@@ -67,7 +67,10 @@
               <div class="card-body" style="padding-bottom: 0px;padding: 5px;">
                 <h5 class="card-title">{{i +1}} Quiz Sessão  Adicionado </h5>
                 <p class="card-text">{{quizQuestion?.quiz_section_name}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <span class="btn btn-danger" (click)="this.removeQuiz(i)"> 
+                    remover
+                </span>
+      
               </div>
             </div>
           </div>
@@ -110,7 +113,7 @@
                 <button type="button" class="btn btn-primary btn-sm" (click)="this.createQuizQuestion()">Criar Quiz</button>
               </div>
               <div class="col-md-6">
-                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="this.resetInput()" data-dismiss="modal">Fechar</button>
               </div>
             </div>
           </div>

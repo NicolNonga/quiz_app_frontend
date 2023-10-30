@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { IQuizSection } from "../feature/feature-quiz/quiz-section/interfaces/quiz_section.interfaces";
 import { FormGroup } from "@angular/forms";
+import { NotificationService } from "../core/services/notification/notification.service";
 
 @Component({
   selector: "app-create-or-edit-quiz-question",
@@ -13,20 +14,20 @@ export class CreateOrEditQuizQuestionComponent implements OnInit {
   public quizText: string = "";
   public quizSection_id !:string
   public quizQuestionAdded: Array<any> = [];
-  constructor() {}
+  constructor(private notificationService: NotificationService) {}
 
   ngOnInit(): void {}
 
   addQuizQuestion() {
 
     if(this.quizText == '' || this.quizSection_id == ''){
-      alert('por favor preencha todos campos')
+      this.notificationService.showError("Preencha todos os campos")
       return
     }
 
      const quizSectionAdd =  this.quizQuestionAdded.find((quiz)=> quiz?.quiz_section_id == this.quizSection_id)
      if(quizSectionAdd){
-       alert("Quiz Session Add")
+      this.notificationService.showError("Quiz Sessão já Adicionado")
       return
      }
     const quizSession : IQuizSection | undefined = this.quizSection.find((quiz:IQuizSection)=> quiz.id ==  this.quizSection_id)
@@ -44,7 +45,7 @@ export class CreateOrEditQuizQuestionComponent implements OnInit {
 
   createQuizQuestion(){
      if(this.quizQuestionAdded.length == 0){
-       alert("Adiciona quiz Sessão ")
+      this.notificationService.showError("Adiciona uma questão")
        return 
      }
    /*   "question_text": "qualdfdfda dddf",
@@ -60,5 +61,15 @@ export class CreateOrEditQuizQuestionComponent implements OnInit {
      this.quizSection_id ='';
      this.quizText= ''
      this.quizQuestionAdded = []
+  }
+
+  removeQuiz(index:any){
+    this.quizQuestionAdded= this.quizQuestionAdded.splice(index, 0)
+  }
+
+  resetInput(){
+     this.quizQuestionAdded = [];
+     this.quizSection_id='';
+     this.quizText = ''
   }
 }

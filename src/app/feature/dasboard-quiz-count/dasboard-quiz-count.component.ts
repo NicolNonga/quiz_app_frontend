@@ -22,7 +22,7 @@ export class DasboardQuizCountComponent implements OnInit {
   getAllDashboard(){
     this.load= true
     this.dashboardService.listAll().subscribe((response)=>{
-      console.log(response)
+   
       this.dashboardCount=  response?._value
       this.load= false
     })

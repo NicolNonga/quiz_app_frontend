@@ -47,7 +47,7 @@
     <!-- /MEMBERSHIP PREVIEW INFO -->
 
     <!-- MEMBERSHIP PREVIEW INFO -->
-    <div class="membership-preview-info">
+    <div class="membership-preview-info" *ngIf="this.quiz?.quizOption.length !== 4">
       <!-- MEMBERSHIP PREVIEW BUTTON -->
       <app-generic-button [proprietyButton]="{
         show_model: true,
