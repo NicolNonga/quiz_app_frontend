@@ -1,0 +1,74 @@
+<div style="margin-top: 40px;">
+    <div class="row">
+
+
+
+        <div class="col-md-4">
+            <div  class="point-reward-box">
+              <h1 class="info-box-icon text-success">
+             <!--      <i class="bi bi-book"></i> -->
+              </h1>
+              <div >
+                <span class="tex-color" ><h5 style="color: black;">TOTAL DE QUIZ</h5></span>
+        
+                <h6 style="color: black;"  class="point-reward-box-icon-wrap">
+                    {{dasboardCount?.countQuiz}}
+                </h6>
+                <div class="progress">
+                  
+                  <div class="progress-bar"  [ngStyle]="{'width': dasboardCount?.countQuiz > 0 ?  dasboardCount?.countQuiz + '%' : '0%'}">
+                  </div>
+                </div>
+                <h6 style="margin-top: 4px;">Mostrando o total de quiz</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div  class="point-reward-box">
+              <h1 class="info-box-icon text-success">
+             <!--      <i class="bi bi-book"></i> -->
+              </h1>
+              <div >
+                <span class="tex-color" ><h5 style="color: black;">TOTAL DE QUIZ QUIZ QUESTION</h5></span>
+        
+                <h6 style="color: black;"  class="point-reward-box-icon-wrap">
+                    {{dasboardCount?.countQuizQuestion}}
+                </h6>
+                <div class="progress">
+                  
+                  <div class="progress-bar"  [ngStyle]="{'width': dasboardCount?.countQuizQuestion > 0 ?  dasboardCount?.countQuizQuestion + '%' : '0%'}">
+                  </div>
+                </div>
+                <h6 style="margin-top: 4px;">Mostrando o total de quiz</h6>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4">
+            <div  class="point-reward-box">
+              <h1 class="info-box-icon text-success">
+             <!--      <i class="bi bi-book"></i> -->
+              </h1>
+              <div >
+                <span class="tex-color" ><h5 style="color: black;">TOTAL DE QUIZ  SESSÕES</h5></span>
+        
+                <h6 style="color: black;"  class="point-reward-box-icon-wrap">
+                    {{dasboardCount?.countQuizSesstion}}
+                </h6>
+                <div class="progress">
+                  
+                  <div class="progress-bar"  [ngStyle]="{'width': dasboardCount?.countQuizSesstion > 0 ?  dasboardCount?.countQuizSesstion + '%' : '0%'}">
+                  </div>
+                </div>
+                <h6 style="margin-top: 4px;">Mostrando o total de quiz</h6>
+              </div>
+            </div>
+          </div>
+
+
+        
+ 
+      </div>
+  </div>
