@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication/auth.service';
 import { IUser } from '../../interface/user.interface';
 import { LoadingJsFile } from '../../services/loadingJs/loadingJs.service';
+import { UserModel } from '../../model/user';
 
 @Component({
   selector: 'siderbar',
@@ -10,9 +11,11 @@ import { LoadingJsFile } from '../../services/loadingJs/loadingJs.service';
 })
 export class SiderBarComponent implements OnInit {
   
-  constructor( private laodingJsService: LoadingJsFile) { }
+    public userLogIn!:UserModel
+  constructor( private laodingJsService: LoadingJsFile, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
+     this.userLogIn = this.authService.getItemLocalStorage
     this.laodingJsService.loadingMainJs('assets/js/app.bundle.min.js')
   }
 

@@ -18,7 +18,7 @@
         >
           <div class="simplebar-content" style="padding: 0px 0px 40px">
             <!-- MENU -->
-            <ul class="menu">
+            <ul class="menu" *ngIf="this.userLogIn.type_user === 'ADMIN'">
               <!-- MENU ITEM -->
 
               <li class="menu-item ">

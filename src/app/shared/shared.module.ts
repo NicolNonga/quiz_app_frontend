@@ -14,6 +14,7 @@ import { FormsModule } from "@angular/forms";
 import { CardQuizSessionComponent } from './components/card-quiz-session/card-quiz-session.component';
 import { GenericSelectComponent } from './components/generic-select/generic-select.component';
 import { CardQuizQuestionComponent } from './components/card-quiz-question/card-quiz-question.component';
+import { AdminDasboardComponent } from './components/admin-dasboard/admin-dasboard.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CardQuizQuestionComponent } from './components/card-quiz-question/card-
     CardQuizSessionComponent,
     GenericSelectComponent,
     CardQuizQuestionComponent,
+    AdminDasboardComponent,
     
   ],
   imports: [CommonModule, RouterModule,    FormsModule],
@@ -42,7 +44,8 @@ import { CardQuizQuestionComponent } from './components/card-quiz-question/card-
     SearhComponent,
     CardQuizSessionComponent,
     GenericSelectComponent,
-    CardQuizQuestionComponent
+    CardQuizQuestionComponent,
+    AdminDasboardComponent
   ],
 })
 export class SharedModule {}

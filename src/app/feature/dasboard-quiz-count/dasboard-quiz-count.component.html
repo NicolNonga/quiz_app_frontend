@@ -6,7 +6,7 @@
     transition: transform 0.4s ease-in-out 0s;
   "
 >
-<app-banner 
+<app-banner  *ngIf="this.userLogado.type_user === 'ADMIN'"
 [bannerData]="{
     title: 'Dashboard Geral',
     description: 'Mostrando o total de todas as quiz'
@@ -14,80 +14,7 @@
 
 </app-banner>
 
-<div style="margin-top: 40px;">
-    <div class="row">
+ <app-admin-dasboard  *ngIf="this.userLogado.type_user==='ADMIN'" [dasboardCount]="this.dashboardCount">
 
-
-
-        <div class="col-md-4">
-            <div  class="point-reward-box">
-              <h1 class="info-box-icon text-success">
-             <!--      <i class="bi bi-book"></i> -->
-              </h1>
-              <div >
-                <span class="tex-color" ><h5 style="color: black;">TOTAL DE QUIZ</h5></span>
-        
-                <h6 style="color: black;"  class="point-reward-box-icon-wrap">
-                    {{dashboardCount?.countQuiz}}
-                </h6>
-                <div class="progress">
-                  
-                  <div class="progress-bar"  [ngStyle]="{'width': dashboardCount?.countQuiz > 0 ?  dashboardCount?.countQuiz + '%' : '0%'}">
-                  </div>
-                </div>
-                <h6 style="margin-top: 4px;">Mostrando o total de quiz</h6>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div  class="point-reward-box">
-              <h1 class="info-box-icon text-success">
-             <!--      <i class="bi bi-book"></i> -->
-              </h1>
-              <div >
-                <span class="tex-color" ><h5 style="color: black;">TOTAL DE QUIZ QUIZ QUESTION</h5></span>
-        
-                <h6 style="color: black;"  class="point-reward-box-icon-wrap">
-                    {{dashboardCount?.countQuizQuestion}}
-                </h6>
-                <div class="progress">
-                  
-                  <div class="progress-bar"  [ngStyle]="{'width': dashboardCount?.countQuizQuestion > 0 ?  dashboardCount?.countQuizQuestion + '%' : '0%'}">
-                  </div>
-                </div>
-                <h6 style="margin-top: 4px;">Mostrando o total de quiz</h6>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-4">
-            <div  class="point-reward-box">
-              <h1 class="info-box-icon text-success">
-             <!--      <i class="bi bi-book"></i> -->
-              </h1>
-              <div >
-                <span class="tex-color" ><h5 style="color: black;">TOTAL DE QUIZ  SESSÕES</h5></span>
-        
-                <h6 style="color: black;"  class="point-reward-box-icon-wrap">
-                    {{dashboardCount?.countQuizSesstion}}
-                </h6>
-                <div class="progress">
-                  
-                  <div class="progress-bar"  [ngStyle]="{'width': dashboardCount?.countQuizSesstion > 0 ?  dashboardCount?.countQuizSesstion + '%' : '0%'}">
-                  </div>
-                </div>
-                <h6 style="margin-top: 4px;">Mostrando o total de quiz</h6>
-              </div>
-            </div>
-          </div>
-
-
-        
- 
-      </div>
-  </div>
-
-
+ </app-admin-dasboard>
 </div>

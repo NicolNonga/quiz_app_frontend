@@ -69,6 +69,9 @@ export class AuthenticationService {
            localStorage.setItem(this.userToken, JSON.stringify(d))
   }
 
+/*   public getUserInfoLocalStore(){
+    return  localStorage.getItem(this.userToken)
+  } */
   public criarUser(userInfo:any):Observable<any>{
     return this.http.post(`${environment.app_url}/users`, userInfo);
   
