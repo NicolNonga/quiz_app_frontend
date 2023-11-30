@@ -13,7 +13,7 @@
             <div class="container">
  
                 <div  class="row">
-                    <div class="cal-md-3">
+                    <div class="cal-md-3" *ngIf="!this.isImg">
                   
                                 <input
                                   type="text"
@@ -25,22 +25,32 @@
                         
                    
                 </div>
+                <div class="col-md-3" >
+                  
+                  <input #files id="file-input" accept="image/x-png,image/jpeg"
+                  type="file" multiple class="form-control" name="anexos" [multiple]="true"   (change)="onFileSelected($event)" #fileUpload>
+                   
+                </div>    
+
                 <div class="col-md-3">
                     <label class="form-control" style="cursor: pointer;">
-                        <input type="radio" name="radio" [(ngModel)]="this.answersForm.is_correct" value="1" />
+                        <input type="radio" name="radio_correcto" [(ngModel)]="this.answersForm.is_correct" [value]="1" />
                          Correcto
                       </label>
                 </div>
 
                 <div class="col-md-3">
                     <label class="form-control" style="cursor: pointer;">
-                        <input type="radio" name="radio" [(ngModel)]="this.answersForm.is_correct" value="0"/>
+                        <input type="radio" name="radio" [(ngModel)]="this.answersForm.is_correct" [value]="0"/>
                           Errado
                       </label>
                 </div>
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-primary" (click)="this.addAnswers()">Adicionar</button>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary" (click)="this.addAnswers()">Adicionar</button>
+              </div>
                 </div>
+   
+            
                 <div class="col-md-12">
            
                     <table class="table table-bordered" style="margin-top: 10px;">
@@ -57,7 +67,7 @@
                           <tr *ngFor="let  respostas of this.asnwersAdd ; index as i">
                             <td>{{i+ 1}}</td>
                             <td>{{respostas?.option_text}}</td>
-                            <td>{{respostas?.is_correct === '1' ? 'Correcto' : 'Não Correcto'}}</td>
+                            <td>{{respostas?.is_correct  ? 'Correcto' : 'Não Correcto'}}</td>
                           </tr>
 
                         </tbody>

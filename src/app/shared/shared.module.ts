@@ -15,6 +15,8 @@ import { CardQuizSessionComponent } from './components/card-quiz-session/card-qu
 import { GenericSelectComponent } from './components/generic-select/generic-select.component';
 import { CardQuizQuestionComponent } from './components/card-quiz-question/card-quiz-question.component';
 import { AdminDasboardComponent } from './components/admin-dasboard/admin-dasboard.component';
+import { StudandDashboardComponent } from './components/studand-dashboard/studand-dashboard.component';
+import { QuestionQuizComponent } from './components/question-quiz/question-quiz.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { AdminDasboardComponent } from './components/admin-dasboard/admin-dasboa
     GenericSelectComponent,
     CardQuizQuestionComponent,
     AdminDasboardComponent,
+    StudandDashboardComponent,
+    QuestionQuizComponent,
     
   ],
   imports: [CommonModule, RouterModule,    FormsModule],
@@ -45,7 +49,8 @@ import { AdminDasboardComponent } from './components/admin-dasboard/admin-dasboa
     CardQuizSessionComponent,
     GenericSelectComponent,
     CardQuizQuestionComponent,
-    AdminDasboardComponent
+    AdminDasboardComponent,
+    StudandDashboardComponent
   ],
 })
 export class SharedModule {}

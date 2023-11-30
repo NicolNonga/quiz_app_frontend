@@ -1,0 +1,6 @@
+<app-banner 
+[bannerData]= this.bannerTitle >
+
+</app-banner>
+
+<app-card-quiz-session [is_studant]="true" (quizSessionEvent)="this.getSection($event)" [cardQuizInfo]="this.quizSectionData"></app-card-quiz-session>

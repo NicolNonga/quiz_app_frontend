@@ -17,4 +17,7 @@
  <app-admin-dasboard  *ngIf="this.userLogado.type_user==='ADMIN'" [dasboardCount]="this.dashboardCount">
 
  </app-admin-dasboard>
+
+ <app-studand-dashboard *ngIf="this.userLogado.type_user !== 'ADMIN' " ></app-studand-dashboard>
+ 
 </div>

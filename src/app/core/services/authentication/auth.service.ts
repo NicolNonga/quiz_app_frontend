@@ -31,11 +31,13 @@ export class AuthenticationService {
   }
 
   
-  login({ email, password }: any) {
+  login( username: string, password :string) {
+
     return this.http
-      .post<any>(`${environment.app_url}/user/login`, { email, password })
+      .post<any>(`${environment.app_url}/user/login`, { username, password })
       .pipe(
         map((user) => {
+  
           localStorage.setItem(this.userToken, JSON.stringify(user));
           this.userSubject.next(user);
           return user;

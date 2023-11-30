@@ -1,0 +1,54 @@
+<div style="margin-top: 300px; margin-right: 250px;" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3
+          class="modal-title"
+          style="width: 100%"
+          *ngIf="this.questionList.length > 0"
+        >
+          {{ currentQuestionNumber + 1 }}.
+          {{
+            this.questionList[currentQuestionNumber].quiz_question.question_text
+          }}
+          ?
+
+          <span
+            class="badge bg-warning"
+            style="margin-left: 368px; position: absolute"
+          >
+            tempo restante {{this.remainingTime}} s</span
+          >
+        </h3>
+      </div>
+      <div class="modal-body">
+        <ul
+          class="list-group"
+          *ngFor="
+            let option of this.questionList[currentQuestionNumber].quiz_question
+              .quiz_option
+          "
+        >
+          <li
+            style="cursor: pointer; margin-bottom: 10px" (click)="this.questionSelected(option)"
+            [ngClass]="{'desable': this.isOptionSelected(this.questionList[currentQuestionNumber].quiz_question.quiz_option), 'correct': option.is_correct && this.option_id === option.id, 'incorrect': !option.is_correct && this.option.id == option_id}"
+            class="list-group-item"
+          >
+            {{ option.option_text }} <i style="float: right;" [ngClass]="{'bi bi-check-circle text-success': option.is_correct && this.option_id === option.id, 'bi bi-plus-circle-fill text-danger': !option?.is_correct && this.option_id === option.id}"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <button
+            type="button"
+            (click)="this.nextQuestion()"
+            class="btn btn-primary"
+          >
+            Proxima Pergunta
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

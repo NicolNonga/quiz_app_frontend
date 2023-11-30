@@ -21,6 +21,11 @@ export class QuizSectionService {
     return this.http.get(`${environment.app_url}/quiz_section/all`);
   }
 
+  public section_question (section_id: string | null):Observable<any>{
+
+    return this.http.get(`${environment.app_url}/section_question/${section_id}`)
+
+  }
   public update(quizSession: IQuizSection):Observable<any>{
     const data: any = {
       name: quizSession.name,

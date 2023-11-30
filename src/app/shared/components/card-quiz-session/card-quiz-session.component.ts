@@ -9,6 +9,7 @@ import { IQuizSection } from 'src/app/feature/feature-quiz/quiz-section/interfac
 })
 export class CardQuizSessionComponent extends DumbComponent {
   @Input () cardQuizInfo!: IQuizSection [];
+  @Input () is_studant: boolean = false
   @Output() quizSessionEvent = new EventEmitter<IQuizSection> ();
   constructor() { 
     super()
@@ -16,7 +17,6 @@ export class CardQuizSessionComponent extends DumbComponent {
 
 
   setQuizSession(quizSesstsion: IQuizSection){
-    console.log(quizSesstsion)
       this.quizSessionEvent.emit(quizSesstsion)
   }
 

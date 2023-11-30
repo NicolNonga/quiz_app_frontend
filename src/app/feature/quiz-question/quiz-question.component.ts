@@ -59,8 +59,8 @@ export class QuizQuestionComponent implements OnInit {
        this.quizQuestion_id= quizQuestionId
   }
  
-  addOption(option:any){
-    console.log(option)
+  addOption(option:FormData){
+  
      this.quizQuestionService.createQuestionOption(option).subscribe((response)=>{
       if(response){
         this.notificationService.showSucess('Criado com sucesso')

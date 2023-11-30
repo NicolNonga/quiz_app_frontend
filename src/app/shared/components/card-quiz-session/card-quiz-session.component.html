@@ -1,7 +1,7 @@
 <div class="grid grid-3-3-3-3 medium-space centered-on-mobile grid-stretched">
-  <div class="achievement-item-box" *ngFor="let quiz_session of this.cardQuizInfo index as i">
+  <div class="achievement-item-box" (click)="this.setQuizSession(quiz_session)" *ngFor="let quiz_session of this.cardQuizInfo index as i" style="cursor: pointer;">
     <!-- TEXT STICKER -->
-    <p class="text-sticker" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" (click)="this.setQuizSession(quiz_session)" >
+    <p class="text-sticker"  *ngIf="!this.is_studant" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" (click)="this.setQuizSession(quiz_session)" >
       <!-- ICON SVG -->
       <svg class="icon-plus-small text-sticker-icon"></svg>
       <!-- ICON SVG -->

@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
 
    authentication(){
-    this.authService.login(this.loginForm.value).pipe((first())).subscribe({
+    this.authService.login(this.loginForm.get('username')?.value, this.loginForm.get('password')?.value).pipe((first())).subscribe({
       next: () => {
         const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
         this.router.navigate([returnUrl])

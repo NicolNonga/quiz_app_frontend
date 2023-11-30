@@ -1,4 +1,4 @@
-<nav
+<nav  *ngIf="this.userLogIn.type_user== 'ADMIN'"
   id="navigation-widget"
   class="navigation-widget navigation-widget-desktop sidebar left navigation-widget-delayed"
   data-simplebar="init"
@@ -46,7 +46,7 @@
                   href="javscript:void(0)"
                   routerLink="/all_quiz"
                   routerLinkActive="active"
-                  data-title="Quiz"
+                  data-title="Quiz"j
                 >
                   <!-- ICON SVG -->
                   <svg class="icon-newsfeed menu-item-link-icon">

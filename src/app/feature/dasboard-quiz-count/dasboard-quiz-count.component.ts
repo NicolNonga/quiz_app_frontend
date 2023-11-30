@@ -26,7 +26,7 @@ export class DasboardQuizCountComponent implements OnInit {
   ngOnInit(): void {
     this.getAllDashboard()
     this.userLogado= this.autheService.getItemLocalStorage?.data
-    console.log(this.userLogado)
+   
   
   }
 

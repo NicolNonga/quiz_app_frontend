@@ -8,30 +8,65 @@ import { DumbComponent } from "src/app/core/components/dumb-component/dumb-compo
   styleUrls: ["./add-answers-quiz-question.component.css"],
 })
 export class AddAnswersQuizQuestionComponent extends DumbComponent {
+  formData!: FormData;
   public asnwersAdd: Array<any> = [];
-   @Input () quiz_section!:any
-  @Output() answerEvents = new EventEmitter<any> ()
-  public answersForm = { option_text: "", is_img: false, is_correct: '' };
+  public fileAdd: Array<any> = []
+  @Input() quiz_section!: any;
+  @Output() answerEvents = new EventEmitter<any>();
+  file!:File
+
+  isImg: boolean = true;
+  public answersForm = { option_text: "", is_img: true, is_correct: false };
   constructor() {
+
     super();
+   
   }
 
+  onFileSelected(event:any){
+     this.file = event.target.files[0]
 
-  addAnswers(){
+
+  }
+
+  addAnswers() {
     this.asnwersAdd.push({
       option_text: this.answersForm.option_text,
       is_img: this.answersForm.is_img,
-      is_correct: this.answersForm.is_correct == "1" ? true: false
+      is_correct: this.answersForm.is_correct ? true: false,
+    });
 
-    })
+   this.fileAdd.push({
+    file: this.file
+   })
   }
-  
-  submitForm() {
-    const data = {
-      quiz_question_id: this.quiz_section?.quizQuestion?.id,
-      quiz_option:  this.asnwersAdd
-    }
 
-    this.answerEvents.emit(data);
+  submitForm() {
+    this.formData = new FormData();
+    const data = {
+      quiz_question_id: this.quiz_section?.quizQuestionany?.id,
+      quiz_option: this.asnwersAdd,
+    };
+
+   
+
+/*     for(let i =0; i < this.file?.files.length; i++) {
+      console.log('teste')
+      this.formData.append("file", this.file.files[i]); 
+} */
+
+    this.formData.append("quiz_option", JSON.stringify(this.asnwersAdd));
+    this.formData.append(
+      "quiz_question_id",
+      this.quiz_section?.quizQuestion?.id
+    );
+
+        
+    for(let i =0; i < this.fileAdd.length; i++) {
+
+     this.formData.append("files", this.fileAdd[i].file);
+}
+
+    this.answerEvents.emit(this.formData);
   }
 }
