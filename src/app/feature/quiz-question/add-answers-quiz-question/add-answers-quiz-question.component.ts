@@ -29,8 +29,20 @@ export class AddAnswersQuizQuestionComponent extends DumbComponent {
 
   }
 
+  deleteAnswers(index:any){
+    console.log(index)
+      this.asnwersAdd.splice(index, 1)
+
+  }
+
   addAnswers() {
-    this.asnwersAdd.push({
+
+     if(!this.answersForm.is_img && this.answersForm.option_text ===''){
+         alert("por favor preecha os campos")
+         return
+     }
+    this.asnwersAdd.push(
+      {
       option_text: this.answersForm.option_text,
       is_img: this.answersForm.is_img,
       is_correct: this.answersForm.is_correct ? true: false,
@@ -39,9 +51,16 @@ export class AddAnswersQuizQuestionComponent extends DumbComponent {
    this.fileAdd.push({
     file: this.file
    })
+
+   this.answersForm.option_text= '';
+   
   }
 
   submitForm() {
+    if(this.asnwersAdd.length === 0){
+      alert("Adicionar um opção de resposta")
+      return 
+    }
     this.formData = new FormData();
     const data = {
       quiz_question_id: this.quiz_section?.quizQuestionany?.id,
@@ -68,5 +87,12 @@ export class AddAnswersQuizQuestionComponent extends DumbComponent {
 }
 
     this.answerEvents.emit(this.formData);
+  }
+
+  SetTypeOptionAnswer(event:  any){
+     const value= (event.target as HTMLTextAreaElement).value
+     console.log(value)
+    this.answersForm.is_img =  value == '1' ? true: false
+    console.log(this.answersForm.is_img)
   }
 }

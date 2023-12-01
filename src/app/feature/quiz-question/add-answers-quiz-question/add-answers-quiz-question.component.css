@@ -1,0 +1,10 @@
+.input-text-answer{
+    width: 90% !important;
+    padding: 12px 10px !important;
+    margin: 2px 0 !important;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 35px;
+    box-sizing: border-box;
+}
