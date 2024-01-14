@@ -39,7 +39,7 @@
           <li *ngIf="this.option.is_img" 
           (click)="this.questionSelected(option)"
             [ngClass]="{'desable': this.isOptionSelected(this.questionList[currentQuestionNumber].quiz_question.quiz_option), 'correct': option.is_correct && this.option_id === option.id, 'incorrect': !option.is_correct && this.option.id == option_id}">
-             {{getImg(option)}}
+            
              <img class="list-group-item center" style="width: 500px; cursor: pointer; margin-bottom: 5px;text-align: center;"  src="{{this.baseUrl}}/{{option.quiz_attachment_option[0].quiz_attacment.file_name}}">
 
           </li>

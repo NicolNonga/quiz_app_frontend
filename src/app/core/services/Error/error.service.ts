@@ -12,6 +12,8 @@ export class ErroService {
             return 'Sem Internte'
         }
 
+
+        
     
         
         return error.message ? error.message : error.toString();

@@ -33,6 +33,7 @@ export class CreateOrEditQuizQuestionComponent implements OnInit {
     const quizSession : IQuizSection | undefined = this.quizSection.find((quiz:IQuizSection)=> quiz.id ==  this.quizSection_id)
 
 
+    
 
     this.quizQuestionAdded.push({
       quiz_section_id: quizSession?.id,
