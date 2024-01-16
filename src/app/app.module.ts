@@ -28,6 +28,8 @@ import { DasboardQuizCountComponent } from './feature/dasboard-quiz-count/dasboa
 import { CreateOrEditQuizQuestionComponent } from './create-or-edit-quiz-question/create-or-edit-quiz-question.component';
 import { CreateOrEditQuizOptionComponent } from './feature/quiz-question/create-or-edit-quiz-option/create-or-edit-quiz-option.component';
 import { AddAnswersQuizQuestionComponent } from './feature/quiz-question/add-answers-quiz-question/add-answers-quiz-question.component';
+import { UtilizadoresComponent } from './feature/utilizadores/utilizadores.component';
+import { CreateUsersComponent } from './feature/utilizadores/create-users/create-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import { AddAnswersQuizQuestionComponent } from './feature/quiz-question/add-ans
     DasboardQuizCountComponent,
     CreateOrEditQuizQuestionComponent,
     CreateOrEditQuizOptionComponent,
-    AddAnswersQuizQuestionComponent
+    AddAnswersQuizQuestionComponent,
+    UtilizadoresComponent,
+    CreateUsersComponent
     
 
   ],
@@ -66,7 +70,11 @@ import { AddAnswersQuizQuestionComponent } from './feature/quiz-question/add-ans
     {provide: HTTP_INTERCEPTORS, useClass: RetryInterceptor,multi:true},
     {
       provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: GlobalErrorHandle,
+      multi:true
+    },
    ],
   bootstrap: [AppComponent]
 })

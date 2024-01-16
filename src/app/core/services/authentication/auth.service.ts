@@ -76,7 +76,11 @@ export class AuthenticationService {
   } */
   public criarUser(userInfo:any):Observable<any>{
     return this.http.post(`${environment.app_url}/users`, userInfo);
-  
 
+  }
+
+  public getAllUsers():Observable<any> {
+    return this.http.get(`${environment
+    .app_url}/users/all`)
   }
 }

@@ -30,6 +30,10 @@ export class MainDashboardComponent extends SmartComponent implements OnInit {
     ) { 
     super()
     this.userLoggin= this.authService.userValue
+
+    if(!this.userLoggin){
+      this.router.navigate(['/login'])
+    }
   }
 
   ngOnInit(): void {
