@@ -1,0 +1,124 @@
+
+<div class="modal fade" id="exampleModal" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{this.title}}</h5>
+      <!--     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+        </div>
+        <div class="modal-body">
+            <div  [formGroup]="userForm">
+
+
+                <!-- FORM ROW -->
+                <div class="form-row">
+                  <!-- FORM ITEM -->
+         
+        
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input">
+            
+                   
+                      <select class="form-control" formControlName="type_user">
+                        <option  [value]="">Selecine o tipo de utilizador</option>
+                        <option value="ADMIN">Administrador/professor</option>
+                        <option value="User">Estudante</option>
+                        
+                       </select>
+                      <div *ngIf="this.submitted && this.f['username'].errors" class="invalid-feedback">
+                        <div *ngIf=" this.f['username'].errors['required']">
+                             por favor informa o username
+                        </div>
+              
+                      </div>
+                    </div>
+
+
+          
+                  </div>
+                </div>
+                
+                <div  class="form-row">
+                    <div class="form-item">
+                        <!-- FORM INPUT -->
+                        <div class="form-input">
+                          <label for="login-username">Username</label>
+                          <input type="text" id="login-username"  [ngClass]="{ 'is-invalid': submitted && this.f['username'].errors, 'is-valid': f['username'].touched && !f['username'].errors }" formControlName="username" class="is-invalid" name="login_username">
+                          <div *ngIf="this.submitted && this.f['username'].errors" class="invalid-feedback">
+                            <div *ngIf=" this.f['username'].errors['required']">
+                                 por favor informa o username
+                            </div>
+                  
+                          </div>
+                        </div>
+    
+    
+              
+                      </div>
+                </div>
+                <div class="form-row">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input">
+                      <label for="login-password">Password</label>
+                      <input type="password"  [ngClass]="{ 'is-invalid': submitted && this.f['password'].errors, 'is-valid': f['password'].touched && !f['password'].errors }" formControlName="password" class="is-invalid" id="login-password" name="login_password">
+                      <div *ngIf="this.submitted && this.f['password'].errors" class="invalid-feedback">
+                        <div *ngIf=" this.f['password'].errors['required']">
+                          por favor informa a password
+                        </div>
+              
+                      </div>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+              
+                <!-- FORM ROW -->
+              
+                <!-- /FORM ROW -->
+              
+                <!-- FORM ROW -->
+                <div class="form-row">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- CHECKBOX WRAP -->
+                    <div class="checkbox-wrap">
+                      <input type="checkbox" id="register-newsletter" name="register_newsletter" checked>
+                      <!-- CHECKBOX BOX -->
+              
+                      <!-- /CHECKBOX BOX -->
+                   <!--    <label for="register-newsletter">Send me news and updates via email</label> -->
+                    </div>
+                    <!-- /CHECKBOX WRAP -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+              
+              </div>
+        </div>
+        <div class="modal-footer" style="width: 400px;">
+          <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                <button type="button" *ngIf="!this.isUpdated" class="btn btn-primary btn-sm" (click)="this.createUser()">Criar utilizador</button>
+                <button type="button" *ngIf="this.isUpdated" class="btn btn-primary btn-sm" >Actualizar Categoria</button>
+                
+               </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" (click)="this.resetForm()">Fechar</button>
+              </div>
+            </div>
+          </div>
+
+        
+        </div>
+      </div>
+    </div>
+  </div>
