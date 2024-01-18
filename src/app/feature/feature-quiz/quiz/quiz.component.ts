@@ -46,7 +46,7 @@ public buttonProprietis: IGericButton = {
     getAllQuiz() {
          this.quizService.listAllQuiz().subscribe((data)=>{
           console.log("data", data)
-            this.quizData = data?.quiz._value;
+            this.quizData = data?._value;
             this.quizDataToFilter= this.quizData;
            
          })
