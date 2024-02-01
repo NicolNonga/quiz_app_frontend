@@ -13,6 +13,7 @@ export class CreateOrEditQuizQuestionComponent implements OnInit {
   @Output() quizQuestionEvent = new EventEmitter<any>();
   public quizText: string = "";
   public quizSection_id !:string
+  public value!: number
   public quizQuestionAdded: Array<any> = [];
   constructor(private notificationService: NotificationService) {}
 
@@ -20,7 +21,7 @@ export class CreateOrEditQuizQuestionComponent implements OnInit {
 
   addQuizQuestion() {
 
-    if(this.quizText == '' || this.quizSection_id == ''){
+    if(this.quizText == '' || this.quizSection_id == '' || !this.value){
       this.notificationService.showError("Preencha todos os campos")
       return
     }
@@ -58,7 +59,7 @@ export class CreateOrEditQuizQuestionComponent implements OnInit {
       }
      })
   
-     this.quizQuestionEvent.emit({question_text: this.quizText, section:section})
+     this.quizQuestionEvent.emit({question_text: this.quizText, section:section, value: this.value})
      this.quizSection_id ='';
      this.quizText= ''
      this.quizQuestionAdded = []

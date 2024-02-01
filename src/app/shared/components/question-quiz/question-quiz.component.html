@@ -1,25 +1,29 @@
 <div style="margin-top: 300px; margin-right: 250px;" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3
-          class="modal-title"
-          style="width: 100%"
-          *ngIf="this.questionList.length > 0"
-        >
-          {{ currentQuestionNumber + 1 }}.
-          {{
-            this.questionList[currentQuestionNumber].quiz_question.question_text
-          }}
-          ?
 
-          <span
-            class="badge bg-warning"
-            style="margin-left: 368px; position: absolute"
-          >
-            tempo restante {{this.remainingTime}} s</span
-          >
-        </h3>
+
+  <div class="modal-dialog" >
+    <div class="modal-content" *ngIf="this.quiz_started && !this.isLastQuestion">
+      <div class="modal-header">
+
+         <div class="container">
+          <div  class="row">
+            <div class="col-md-8"   *ngIf="this.questionList.length > 0">
+               <h5 class="modal-title">
+                {{ currentQuestionNumber + 1 }}.
+                {{
+                  this.questionList[currentQuestionNumber].quiz_question.question_text
+                }}
+                ?
+               </h5>
+            </div>
+            <div class="col-md-4"   *ngIf="this.questionList.length > 0">
+              <span  class="badge bg-warning">
+                tempo restante {{this.remainingTime}}
+              </span>
+           </div>
+          </div>
+         </div>
+
       </div>
       <div class="modal-body">
         <ul
@@ -30,14 +34,14 @@
           "
         >
           <li *ngIf="!option.is_img"
-            style="cursor: pointer; margin-bottom: 10px" (click)="this.questionSelected(option)"
+            style="cursor: pointer; margin-bottom: 10px" (click)="this.questionSelected(option, this.questionList[currentQuestionNumber].quiz_question)"
             [ngClass]="{'desable': this.isOptionSelected(this.questionList[currentQuestionNumber].quiz_question.quiz_option), 'correct': option.is_correct && this.option_id === option.id, 'incorrect': !option.is_correct && this.option.id == option_id}"
             class="list-group-item"
           >
             {{ option.option_text }} <i style="float: right;" [ngClass]="{'bi bi-check-circle text-success': option.is_correct && this.option_id === option.id, 'bi bi-plus-circle-fill text-danger': !option?.is_correct && this.option_id === option.id}"></i>
           </li>
           <li *ngIf="this.option.is_img" 
-          (click)="this.questionSelected(option)"
+          (click)="this.questionSelected(option, this.questionList[currentQuestionNumber].quiz_question)"
             [ngClass]="{'desable': this.isOptionSelected(this.questionList[currentQuestionNumber].quiz_question.quiz_option), 'correct': option.is_correct && this.option_id === option.id, 'incorrect': !option.is_correct && this.option.id == option_id}">
             
              <img class="list-group-item center" style="width: 500px; cursor: pointer; margin-bottom: 5px;text-align: center;"  src="{{this.baseUrl}}/{{option.quiz_attachment_option[0].quiz_attacment.file_name}}">
@@ -47,7 +51,7 @@
       </div>
       <div class="modal-footer">
         <div class="row">
-          <button
+          <button *ngIf="this.currentQuestionNumber < this.questionList.length - 1"
             type="button"
             (click)="this.nextQuestion()"
             class="btn btn-primary"
@@ -57,5 +61,54 @@
         </div>
       </div>
     </div>
+
+    <div class="modal-content" *ngIf="!this.quiz_started">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Regra  Para Quiz</h5>
+
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <li class="list-group-item">Não Será Possivel mudar de pergunta uma vez escolhida pergunta</li>
+          <li class="list-group-item">Para Cada Pergunta temos apenas 14 segundo pra  responder</li>
+        </ul>
+  
+      </div>
+      <div class="modal-footer" style="width: 400px;">
+        <div class="container">
+           <div class="row">
+       
+
+          
+              <button type="button" (click)="this.startQuiz()"  class="btn btn-info btn-sm"  data-dismiss="modal">Começar A Quiz</button>
+            
+            
+          
+    
+        </div>
+   
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-content" *ngIf="this.isLastQuestion">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Resultado Quiz</h5>
+
+    </div>
+    <div class="modal-body">
+      <ul class="list-group">
+        <li class="list-group-item">Total pergunta Certa -> {{this.curectAnswer}} </li>
+        <li class="list-group-item">Total pergunta Errada -> {{this.wrongAnswer}}</li>
+        <li class="list-group-item">Total  Pontuação -> {{this.totalPontos}}</li>
+      </ul>
+
+    </div>
+   
+   
   </div>
 </div>
+
+</div>
+

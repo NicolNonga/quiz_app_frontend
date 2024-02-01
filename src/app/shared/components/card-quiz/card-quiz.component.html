@@ -3,22 +3,21 @@
       class="point-reward-box"
       *ngFor="let quiz of this.cardQuizInfor; index as i"
     >
-      <!-- POINT REWARD BOX ICON WRAP -->
+
       <div class="point-reward-box-icon-wrap">
-        <!-- ICON SVG -->
+
         {{ i + 1 }}
 
-        <!-- ICON SVG -->
+
       </div>
-      <!-- /POINT REWARD BOX ICON WRAP -->
+      
 
-      <!-- POINT REWARD BOX INFO -->
       <div class="point-reward-box-info point-reward-box-info-description">
-        <!-- POINT REWARD BOX TITLE -->
+   
         <p class="point-reward-box-title">Nome</p>
-        <!-- /POINT REWARD BOX TITLE -->
+   
 
-        <!-- POINT REWARD BOX TEXT -->
+      
         <p class="point-reward-box-text">{{ quiz.name }}</p>
 
         <p class="point-reward-box-title">Topico</p>
@@ -43,11 +42,9 @@
         <p class="point-reward-box-text">
           {{ quiz.createdAt | date : "MM-dd-yyyy" }}
         </p>
-        <!-- /POINT REWARD BOX TEXT -->
-      </div>
-      <!-- /POINT REWARD BOX INFO -->
 
-      <!-- TEXT STICKER -->
+      </div>
+
       <p class="text-sticker" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" (click)="this.setQuiz(quiz)">
         <!-- ICON SVG -->
         <svg class="icon-plus-small text-sticker-icon"></svg>

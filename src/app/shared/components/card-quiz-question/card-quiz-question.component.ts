@@ -21,6 +21,7 @@ export class CardQuizQuestionComponent implements OnInit {
   getAllQuizQuestion() {
     this.quizQuestionService.listAllQuizQuestion().subscribe((response) => {
       this.quizQuestionData = response?._value?.data;
+      
 
       /*      this.quizQuestionFilterData= this.quizQuestionData */
     });

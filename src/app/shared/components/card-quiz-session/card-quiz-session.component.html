@@ -1,10 +1,22 @@
 <div class="grid grid-3-3-3-3 medium-space centered-on-mobile grid-stretched">
-  <div class="achievement-item-box" (click)="this.setQuizSession(quiz_session)" *ngFor="let quiz_session of this.cardQuizInfo index as i" style="cursor: pointer;">
-    <!-- TEXT STICKER -->
-    <p class="text-sticker"  *ngIf="!this.is_studant" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" (click)="this.setQuizSession(quiz_session)" >
-      <!-- ICON SVG -->
+  <div
+    class="achievement-item-box"
+    (click)="this.setQuizSession(quiz_session)"
+    *ngFor="let quiz_session of this.cardQuizInfo; index as i"
+    style="cursor: pointer"
+  >
+  
+    <p
+      class="text-sticker"
+      *ngIf="!this.is_studant"
+      data-toggle="modal"
+      data-target="#exampleModal"
+      style="cursor: pointer"
+      (click)="this.setQuizSession(quiz_session)"
+    >
+   
       <svg class="icon-plus-small text-sticker-icon"></svg>
-      <!-- ICON SVG -->
+    
       Editar
       <!-- TEXT STICKER IMAGE -->
       <i class="fa fa-edit"></i>
@@ -19,18 +31,16 @@
         <!-- ACHIEVEMENT ITEM BOX IMAGE WRAP -->
         <div class="achievement-item-box-image-wrap">
           <!-- ACHIEVEMENT ITEM BOX IMAGE -->
-             <p class="achievement-item-box-title">{{i +1}}</p>
+          <p class="achievement-item-box-title">{{ i + 1 }}</p>
           <!-- /ACHIEVEMENT ITEM BOX IMAGE -->
         </div>
-        <!-- /ACHIEVEMENT ITEM BOX IMAGE WRAP -->
-
-        <!-- ACHIEVEMENT ITEM BOX TITLE -->
-        <p class="achievement-item-box-title">Nome </p>
+      
+        <p class="achievement-item-box-title">Nome</p>
         <!-- /ACHIEVEMENT ITEM BOX TITLE -->
 
         <!-- ACHIEVEMENT ITEM BOX TEXT -->
         <div class="achievement-item-box-text">
-          <p>{{quiz_session.name}}</p>
+          <p>{{ quiz_session.name }}</p>
         </div>
         <!-- /ACHIEVEMENT ITEM BOX TEXT -->
 
@@ -38,46 +48,38 @@
         <div class="achievement-item-box-requirements">
           <!-- ACHIEVEMENT ITEM BOX SUBTITLE -->
           <p class="achievement-item-box-subtitle">
-            Categoria Pertecente: <span>{{quiz_session.category.name}}</span>
+            Categoria Pertecente: <span>{{ quiz_session.category.name }}</span>
           </p>
-
         </div>
         <div class="achievement-item-box-requirements">
-            <!-- ACHIEVEMENT ITEM BOX SUBTITLE -->
-            <p class="achievement-item-box-subtitle">
-              Quiz  Pertecente: <span>{{quiz_session.quiz.name}}</span>
-            </p>
-  
-          </div>
+          <!-- ACHIEVEMENT ITEM BOX SUBTITLE -->
+          <p class="achievement-item-box-subtitle">
+            Quiz Pertecente: <span>{{ quiz_session.quiz.name }}</span>
+          </p>
+        </div>
         <!-- /ACHIEVEMENT ITEM BOX INFO -->
       </div>
 
-
-
       <div class="achievement-item-box-info-bottom">
-    
-    
+        <!-- /PROGRESS STAT -->
+        <!-- ACHIEVEMENT ITEM BOX FOOTER -->
+        <div class="achievement-item-box-footer">
+          <!-- ACHIEVEMENT ITEM BOX FOOTER TITLE -->
+          <p class="achievement-item-box-footer-title">
+            QUIZ SESSÃO FOI CRIANDA EM:
+          </p>
+          <!-- /ACHIEVEMENT ITEM BOX FOOTER TITLE -->
 
-    <!-- /PROGRESS STAT -->
-          <!-- ACHIEVEMENT ITEM BOX FOOTER -->
-      <div class="achievement-item-box-footer ">
-                <!-- ACHIEVEMENT ITEM BOX FOOTER TITLE -->
-        <p class="achievement-item-box-footer-title">QUIZ SESSÃO FOI CRIANDA EM:</p>
-        <!-- /ACHIEVEMENT ITEM BOX FOOTER TITLE -->
-        
-              <!-- USER AVATAR LIST -->
-        <div class="user-avatar-list">
-        
-            {{quiz_session.createdAt| date: 'MM-dd-yyyy'}}
+          <!-- USER AVATAR LIST -->
+          <div class="user-avatar-list">
+            {{ quiz_session.createdAt | date : "MM-dd-yyyy" }}
 
-
-<!-- /USER AVATAR -->        </div>
-        <!-- /USER AVATAR LIST -->
-            </div>
-      <!-- /ACHIEVEMENT ITEM BOX FOOTER -->
-    </div>
+            <!-- /USER AVATAR -->
+          </div>
+          <!-- /USER AVATAR LIST -->
+        </div>
+        <!-- /ACHIEVEMENT ITEM BOX FOOTER -->
+      </div>
     </div>
   </div>
-  
 </div>
-

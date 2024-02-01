@@ -17,6 +17,7 @@ import { CardQuizQuestionComponent } from './components/card-quiz-question/card-
 import { AdminDasboardComponent } from './components/admin-dasboard/admin-dasboard.component';
 import { StudandDashboardComponent } from './components/studand-dashboard/studand-dashboard.component';
 import { QuestionQuizComponent } from './components/question-quiz/question-quiz.component';
+import { QuizQuestionDescriptionComponent } from './components/question-quiz/quiz-question-description/quiz-question-description.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { QuestionQuizComponent } from './components/question-quiz/question-quiz.
     AdminDasboardComponent,
     StudandDashboardComponent,
     QuestionQuizComponent,
+    QuizQuestionDescriptionComponent,
     
   ],
   imports: [CommonModule, RouterModule,    FormsModule],

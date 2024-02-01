@@ -46,7 +46,11 @@ export class StudandDashboardComponent implements OnInit {
 
   getSection(section:IQuizSection) {
    
-    this.router.navigate(['/section-question',  section.id ])
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['/section-question',  section.id ])
+    );
+    window.open(url, '_blank');
+
   }
 
 }

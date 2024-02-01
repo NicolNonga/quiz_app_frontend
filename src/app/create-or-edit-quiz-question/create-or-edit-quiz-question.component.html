@@ -12,10 +12,16 @@
           <form >
             <div class="container">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="form-group">
                    
                     <input type="text" name="name_input" placeholder="escreve a pergunta" [(ngModel)]="this.quizText" class="form-control" id="recipient-name">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                   
+                    <input type="text" name="name_input" placeholder="insere o value"  [(ngModel)]="this.value" class="form-control" id="recipient-name">
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -76,32 +82,7 @@
           </div>
      
         </div>
-<!--               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Pergunta Adicionado:</label>
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th >#</th>
-                        <th >Quiz Sessão</th>
-                      </tr>
-                    </thead>
-                
-                    <tbody>
 
-    
-                      <tr *ngFor="let quizQuestion of this.quizQuestionAdded index as i">
-                        <th scope="row">{{i +1}}</th>
-                      
-                        <td>{{quizQuestion?.quiz_section_name}}</td>
-                        <td></td>
-                      </tr>
-                    
-                      <span colspan="4" *ngIf="quizQuestionAdded.length ==0">
-                        <h5 class="nenhum_registo">Nenhum pergunta  adicionado</h5>
-                      </span>
-                    </tbody>
-                  </table>
-              </div> -->
 
           
           </form>
