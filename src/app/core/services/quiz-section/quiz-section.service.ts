@@ -9,6 +9,11 @@ import {
   IQuizSectionDTO,
 } from "src/app/feature/feature-quiz/quiz-section/interfaces/quiz_section.interfaces";
 
+export interface quizAttempedInterface {
+    user_id: string
+   quiz_section_id: string 
+   option_id: string
+}
 @Injectable({
   providedIn: "root",
 })
@@ -24,6 +29,12 @@ export class QuizSectionService {
   public section_question (section_id: string | null):Observable<any>{
 
     return this.http.get(`${environment.app_url}/section_question/${section_id}`)
+
+  }
+
+  public quizAttemped(playload: quizAttempedInterface){
+    
+      return this.http.post(`${environment.app_url}/quiz-attempted`, playload)
 
   }
   public update(quizSession: IQuizSection):Observable<any>{

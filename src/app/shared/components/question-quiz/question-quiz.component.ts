@@ -2,15 +2,17 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { Subscriber, Subscription, interval } from "rxjs";
 import { QuestionModel, quiz_option } from "src/app/core/model/questsion";
+import { AuthenticationService } from "src/app/core/services/authentication/auth.service";
 import { QuizSectionService } from "src/app/core/services/quiz-section/quiz-section.service";
 import { environment } from "src/environments/environment";
+import { UserModel } from "../../models/user-model";
 @Component({
   selector: "app-question-quiz",
   templateUrl: "./question-quiz.component.html",
   styleUrls: ["./question-quiz.component.css"],
 })
 export class QuestionQuizComponent implements OnInit {
-  public quiz_section_id!: string | null;
+  public quiz_section_id!: string ;
   public quiz_started: boolean = false
   public questionList: Array<QuestionModel> = [];
   public currentQuestionNumber: number = 0;
@@ -22,15 +24,20 @@ export class QuestionQuizComponent implements OnInit {
   public totalPontos: number = 0;
   public time = interval(1000);
   public baseUrl= `${environment.app_url}/attachement`
+  public currentUser:any
   option_id!: string 
   constructor(
     private route: ActivatedRoute,
-    public quizSectionService: QuizSectionService
+    public quizSectionService: QuizSectionService,
+    public authService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
+    this.currentUser=this.authService.userValue;
+
+  
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.quiz_section_id = params.get("id");
+      this.quiz_section_id = params.get("id") ?? ''
 
      
     });
@@ -42,7 +49,7 @@ export class QuestionQuizComponent implements OnInit {
       .subscribe((response) => {
         this.questionList = response;
 
-        console.log("question", this.questionList)
+     
        
       });
   }
@@ -97,6 +104,16 @@ export class QuestionQuizComponent implements OnInit {
       
      
       this.option_id  = option.id 
+
+
+      console.log(this.currentUser?.id)
+     this.quizSectionService.quizAttemped({
+      user_id: this.currentUser?.data?.id,
+      option_id: option.id,
+      quiz_section_id:  this.quiz_section_id
+     }).subscribe((res)=>{
+      console.log("res")
+     })
   }
 
 
