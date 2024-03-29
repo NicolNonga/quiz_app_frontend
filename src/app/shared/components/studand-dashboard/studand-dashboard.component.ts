@@ -31,18 +31,25 @@ export class StudandDashboardComponent implements OnInit {
   }
 
 
-  private listAllQuizSection() {
-    this.quizSectionService.listAllQuizSection().subscribe((response) => {
-      this.quizSectionData = response?.data._value;
+  public listAllQuizSection() {
+    this.quizSectionService.getQuizSectionBytUser().subscribe((response) => {
+    
+      this.quizSectionData = response?._value;
       
-    });
+      
+    }, (err)=> console.log(err));
   }
 
 
   getStundantInfo() {
     this.studantInfo= this.autheService.getItemLocalStorage?.data
     this.bannerTitle.title = ` Bem-vindo Senhor(a) - ${this.studantInfo.username}`
+    const user = {user_id : 1}
+     this.quizSectionService.listAllQuizSection().subscribe((res)=> {
+     
+     })
   }
+
 
   getSection(section:IQuizSection) {
    

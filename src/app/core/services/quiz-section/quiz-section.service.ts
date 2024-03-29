@@ -8,6 +8,8 @@ import {
   IQuizSection,
   IQuizSectionDTO,
 } from "src/app/feature/feature-quiz/quiz-section/interfaces/quiz_section.interfaces";
+import { AuthenticationService } from "../authentication/auth.service";
+import { UserModel } from "../../model/user";
 
 export interface quizAttempedInterface {
     user_id: string
@@ -18,7 +20,9 @@ export interface quizAttempedInterface {
   providedIn: "root",
 })
 export class QuizSectionService {
-  constructor(public http: HttpClient, private loadingJs: LoadingJsFile) {
+  constructor(public http: HttpClient,
+     private loadingJs: LoadingJsFile,
+      public autheService: AuthenticationService) {
     this.loadingJs.loadingMainJs();
   }
 
@@ -30,7 +34,16 @@ export class QuizSectionService {
 
     return this.http.get(`${environment.app_url}/section_question/${section_id}`)
 
+
+    
   }
+
+  public getQuizSectionBytUser(): Observable<any>{
+    const user:UserModel = this.autheService.getItemLocalStorage?.data
+    
+    return this.http.get(`${environment.app_url}/quiz_session/list/users/${user.id}`,)
+  }
+
 
   public quizAttemped(playload: quizAttempedInterface){
     

@@ -59,7 +59,7 @@ export class AuthenticationService {
   }
   public isAuthenticated(): Observable<boolean> {
     const token = this.getItemLocalStorage;
-           console.log(token)
+
     if(token){
         this.subjLoggedIn$.next(true)
         return of(true)
