@@ -1,0 +1,99 @@
+
+<div class="modal fade" id="add-studant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 800px;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adiconar Estudante a Quiz</h5>
+      <!--     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+        </div>
+        <div class="modal-body">
+          <form >
+            <div class="container">
+              <div class="row">
+                      
+                <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-item">
+                        <div class="form-select">
+                          <label>Quiz Sessão</label
+                          ><select name="quiz"  [(ngModel)]="quizSection_id">
+                            <option  value="" selected>Quiz Sessão</option>
+                            
+                            <option *ngFor="let user of this.users" [value]="user.id">
+                              {{user.username}}
+                            </option>
+                            </select
+                          ><svg class="icon-small-arrow form-select-icon">
+                            <use href="#svg-small-arrow"></use>
+                          </svg>
+                        </div>
+                      </div>
+                  
+                    </div>
+                  </div>
+
+         
+
+                <div class="col-md-3">
+                  <app-generic-button 
+                  [proprietyButton]="{
+                    show_model: false,
+                    data_target_name: '#exampleModal',
+                    class:'button secondar',
+                    name: 'Adicionar',
+                    style: 'width: 100px'
+                  }">
+        
+                  </app-generic-button>
+                </div>
+              </div>
+            </div>
+        
+
+         <div >
+ 
+     
+         </div>
+<!--          <div class="row">
+          <div style="margin-bottom:20px">
+            <span class="badge badge-warning nenhum_registo" colspan="4"  *ngIf="quizQuestionAdded.length ==0"> Nenhum Apergunta Adicionada</span>
+          </div>
+    
+          <div class="col-sm-6 mb-3 mb-sm-0" *ngFor="let quizQuestion of this.quizQuestionAdded index as i">
+            <div class="card">
+              <div class="card-body" style="padding-bottom: 0px;padding: 5px;">
+                <h5 class="card-title">{{i +1}} Quiz Sessão  Adicionado </h5>
+                <p class="card-text">{{quizQuestion?.quiz_section_name}}</p>
+                <span class="btn btn-danger" (click)="this.removeQuiz(i)"> 
+                    remover
+                </span>
+      
+              </div>
+            </div>
+          </div>
+     
+        </div> -->
+
+
+          
+          </form>
+        </div>
+        <div class="modal-footer">
+<!--           <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-sm" (click)="this.createQuizQuestion()">Criar Quiz</button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-danger btn-sm" (click)="this.resetInput()" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div> -->
+
+         
+        </div>
+      </div>
+    </div>
+  </div>

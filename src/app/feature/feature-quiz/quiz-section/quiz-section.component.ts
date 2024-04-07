@@ -24,6 +24,7 @@ export class QuizSectionComponent implements OnInit {
   public quiz!: QuizInterface[];
   @ViewChild(CreateOrEditQuizSectionComponent, {static: true})
   public createOrEditQuizSession!:CreateOrEditQuizSectionComponent
+  public quiz_session_id_selected!: string
   constructor(
     public quizSectionService: QuizSectionService,
     public quizService: QuizService,
@@ -90,6 +91,10 @@ export class QuizSectionComponent implements OnInit {
           this.listAllQuizSection()
         }
       })
+  }
+
+  quizSelected(quiz_Session_id: string) {
+    this.quiz_session_id_selected = quiz_Session_id
   }
 }
 

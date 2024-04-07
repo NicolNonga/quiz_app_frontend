@@ -11,6 +11,7 @@ export class CardQuizSessionComponent extends DumbComponent {
   @Input () cardQuizInfo!: IQuizSection [];
   @Input () is_studant: boolean = false
   @Output() quizSessionEvent = new EventEmitter<IQuizSection> ();
+  @Output() quiz_session_id  = new EventEmitter<any> ();
   constructor() { 
     super()
   }
@@ -20,5 +21,9 @@ export class CardQuizSessionComponent extends DumbComponent {
       this.quizSessionEvent.emit(quizSesstsion)
   }
 
+  setQuizSessionSelected(quiz_Session_id: string){
+      console.log("this is is the id", quiz_Session_id)
+      this.quiz_session_id.emit(quiz_Session_id)
+  }
 
 }

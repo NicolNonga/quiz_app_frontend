@@ -38,7 +38,7 @@ export class CategoriaComponent implements OnInit {
   public createCategory(event: ICategoryDTO) {
     this.categoryService.create(event).subscribe((response) => {
       if (response) {
-        this.notificationService.showSucess("Categoria Criado com sucesso");
+      //  this.notificationService.showSucess("Categoria Criado com sucesso");
          this.getAllCategory()
       }
     });

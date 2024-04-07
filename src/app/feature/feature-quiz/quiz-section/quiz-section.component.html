@@ -28,7 +28,7 @@ transition: transform 0.4s ease-in-out 0s;
         }"></app-generic-button>
     </div>
  </div>
- <app-card-quiz-session [cardQuizInfo]="this.quizSectionData"  (quizSessionEvent)="this.setEditarQuizSession($event)"></app-card-quiz-session>
+ <app-card-quiz-session [cardQuizInfo]="this.quizSectionData"  (quiz_session_id)="this.quizSelected($event)" (quizSessionEvent)="this.setEditarQuizSession($event)"></app-card-quiz-session>
 </div>
 
 
@@ -39,3 +39,5 @@ transition: transform 0.4s ease-in-out 0s;
 [quiz]="this.quiz"
 (updateQuizSectionEvent)="this.updateQuizSection($event)"
 ></app-create-or-edit-quiz-section>
+
+<app-add-studant-to-session  [QuizSectionId]="this.quiz_session_id_selected"></app-add-studant-to-session>

@@ -76,6 +76,14 @@
 
             <!-- /USER AVATAR -->
           </div>
+
+          <app-generic-button (click)="this.setQuizSessionSelected(quiz_session.id)" [proprietyButton]="{
+            show_model: true,
+            data_target_name: '#add-studant',
+            style: 'width: 200px',
+            class:'button primary login-button',
+            name: 'Adicionar Estudante'
+          }"></app-generic-button>
           <!-- /USER AVATAR LIST -->
         </div>
         <!-- /ACHIEVEMENT ITEM BOX FOOTER -->
@@ -83,3 +91,4 @@
     </div>
   </div>
 </div>
+

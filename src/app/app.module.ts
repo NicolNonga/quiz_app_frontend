@@ -30,6 +30,7 @@ import { CreateOrEditQuizOptionComponent } from './feature/quiz-question/create-
 import { AddAnswersQuizQuestionComponent } from './feature/quiz-question/add-answers-quiz-question/add-answers-quiz-question.component';
 import { UtilizadoresComponent } from './feature/utilizadores/utilizadores.component';
 import { CreateUsersComponent } from './feature/utilizadores/create-users/create-users.component';
+import { AddStudantToSessionComponent } from './shared/components/card-quiz-session/add-studant-to-session/add-studant-to-session.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,8 +47,8 @@ import { CreateUsersComponent } from './feature/utilizadores/create-users/create
     CreateOrEditQuizOptionComponent,
     AddAnswersQuizQuestionComponent,
     UtilizadoresComponent,
-    CreateUsersComponent
-    
+    CreateUsersComponent,
+    AddStudantToSessionComponent
 
   ],
   imports: [

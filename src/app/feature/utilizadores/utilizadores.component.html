@@ -1,4 +1,3 @@
-
 <div class="content-grid" style="
     transform: translate(510px, 0px);
     margin: 0px;
@@ -6,15 +5,18 @@
   ">
   <!-- SECTION BANNER -->
 
-  <div class="section-banner" style="background: url('https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/img/banner/banner-bg.png') center center / cover no-repeat;">
+  <div class="section-banner"
+    style="background: url('https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/img/banner/banner-bg.png') center center / cover no-repeat;">
     <!-- SECTION BANNER ICON -->
-    <img decoding="async" class="section-banner-icon" src="https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/img/banner/members-icon.png" alt="section-icon">
+    <img decoding="async" class="section-banner-icon"
+      src="https://odindesignthemes.com/vikinger-theme/wp-content/themes/vikinger/img/banner/members-icon.png"
+      alt="section-icon">
     <!-- /SECTION BANNER ICON -->
-  
+
     <!-- SECTION BANNER TITLE -->
     <p class="section-banner-title">Members</p>
     <!-- /SECTION BANNER TITLE -->
-  
+
     <!-- SECTION BANNER TEXT -->
     <p class="section-banner-text">Browse all the members of the community!</p>
     <!-- /SECTION BANNER TEXT -->
@@ -23,14 +25,14 @@
     <div class="col-md-10">
       <div class="header-actions search-bar">
         <!-- SEARCH FORM -->
-           <app-searh >
+        <app-searh>
 
-           </app-searh>
+        </app-searh>
         <!-- /SEARCH FORM -->
       </div>
     </div>
     <div class="col-md-2">
-        <app-generic-button [proprietyButton]="{
+      <app-generic-button [proprietyButton]="{
           show_model: true,
           data_target_name: '#exampleModal',
           style: '',
@@ -40,76 +42,30 @@
     </div>
 
   </div>
+  <div class="container">
 
-<div class="grid" *ngFor="let users of this.usersData">
-  <div class="user-preview landscape">
-    <div class="user-preview-cover"
-      style="background: url(&quot;https://odindesignthemes.com/vikinger-theme/wp-content/uploads/buddypress/members/6/cover-image/5f6d2f48ef65e-bp-cover-image.jpg&quot;) center center / cover no-repeat;">
-    </div>
-    <div class="user-preview landscape">
-      <div class="user-preview-cover"
-        style="background: url(&quot;https://odindesignthemes.com/vikinger-theme/wp-content/uploads/buddypress/members/6/cover-image/5f6d2f48ef65e-bp-cover-image.jpg&quot;) center center / cover no-repeat;">
-      </div>
-      <div class="user-preview-info">
-        <div class="user-short-description landscape tiny"><a
-            class="user-avatar small    user-short-description-avatar"
-            href="https://odindesignthemes.com/vikinger-theme/members/brdwonder/">
-            <div class="user-avatar-border">
-              <div class="hexagon-50-56" style="width: 50px; height: 56px; position: relative;"><canvas width="50"
-                  height="56" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-            </div>
-            <div class="user-avatar-content">
-              <div class="hexagon-image-30-32"
-                data-src="https://odindesignthemes.com/vikinger-theme/wp-content/uploads/avatars/6/5f6d2f1e67572-bpfull.jpg"
-                style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32"
-                  style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-            </div>
-            <div class="user-avatar-progress">
-              <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas
-                  width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-            </div>
-            <div class="user-avatar-progress-border">
-              <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas
-                  width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-            </div>
-            <div class="user-avatar-badge">
-              <div class="user-avatar-badge-border">
-                <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas
-                    width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-              </div>
-              <div class="user-avatar-badge-content">
-                <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas
-                    width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-              </div>
-              <p class="user-avatar-badge-text">2</p>
-            </div>
-          </a>
-          <p class="user-short-description-title"><a
-              href="https://odindesignthemes.com/vikinger-theme/members/brdwonder/">{{users.username}}</a></p>
-          <p class="user-short-description-text"><a
-              href="https://odindesignthemes.com/vikinger-theme/members/brdwonder/">{{users.type_user}}</a></p>
-        </div>
+    <div class="row">
+      <div class="col-3 col-md-4 col-lg-3" *ngFor="let user of this.usersData">
+        <div>
+          <div class="card">
 
-        <div class="user-stats">
-          <div class="user-stat">
-            <p class="user-stat-title">2</p>
-            <p class="user-stat-text">Posts</p>
-          </div>
-          <div class="user-stat">
-            <p class="user-stat-title">1</p>
-            <p class="user-stat-text">Friend</p>
-          </div>
-          <div class="user-stat">
-            <p class="user-stat-title">0</p>
-            <p class="user-stat-text">Comments</p>
+            <h2 style="margin-top: 10px">{{user.username}}</h2>
+            <p class="title">Tipo de Utilizador</p>
+            <p>{{user.type_user}}</p>
+            <div style="margin: 24px 0;">
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+            <p style="margin-top: 10px;"><button>Editar</button></p>
           </div>
         </div>
-   
-        <div class="user-preview-actions"></div>
       </div>
+
     </div>
+
+
+
   </div>
-</div>
-
-</div>
-<app-create-users (userEvent)="this.getAllUsers()"></app-create-users>
+  <app-create-users (userEvent)="this.getAllUsers()"></app-create-users>
