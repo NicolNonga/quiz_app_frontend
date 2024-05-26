@@ -44,7 +44,6 @@ export class QuizSectionService {
     return this.http.get(`${environment.app_url}/quiz_session/list/users/${user.id}`,)
   }
 
-
   public quizAttemped(playload: quizAttempedInterface){
     
       return this.http.post(`${environment.app_url}/quiz-attempted`, playload)
@@ -85,4 +84,13 @@ export class QuizSectionService {
 
     return quizSection;
   }
+
+   public getAllUserFromQuiz(quiz_section_id: string) : Observable<any> {
+    return this.http.get(`${environment.app_url}/users/quiz_section/${quiz_section_id}`)
+   }
+
+   public addUserToQuizSection(users :Array<any>, quiz_sessetion_id: string){
+     return this.http.post(`${environment.app_url}/quiz_session/users`, {users, quiz_sessetion_id})
+
+   }
 }
