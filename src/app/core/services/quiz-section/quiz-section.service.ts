@@ -61,7 +61,7 @@ export class QuizSectionService {
 
   public create(quizSectionData: IQuizSectionDTO): Observable<any> {
     return this.http.post(
-      `${environment.app_url}/quiz_section`,
+      `${environment.app_url}/quiz_section`, 
       quizSectionData
     );
   }
@@ -92,5 +92,8 @@ export class QuizSectionService {
    public addUserToQuizSection(users :Array<any>, quiz_sessetion_id: string){
      return this.http.post(`${environment.app_url}/quiz_session/users`, {users, quiz_sessetion_id})
 
+   }
+   public removeUserToQuizSection(user_id: string, quiz_section_id: string) {
+    
    }
 }

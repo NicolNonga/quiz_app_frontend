@@ -15,80 +15,88 @@ interface userAddToQuiz {
 })
 export class AddStudantToSessionComponent implements OnInit, OnChanges {
 
-  @Input() QuizSectionId! : string
-   public quizSection_id!: string
+  @Input() QuizSectionId!: string
+  public quizSection_id!: string
   public users: Array<any> = []
-  public  quizSectionUser:  Array<userAddToQuiz> = []
-  public  allUserFromQuiz: Array<any> = []
+  public quizSectionUser: Array<userAddToQuiz> = []
+  public allUserFromQuiz: Array<any> = []
   public usersAddToQuiz: Array<any> = []
 
-  constructor(private userService: AuthenticationService, 
+  constructor(private userService: AuthenticationService,
     private quizSectionService: QuizSectionService) { }
 
   ngOnInit(): void {
     //this.getAllUser()
   }
 
-  ngOnChanges(){
+  ngOnChanges() {
     console.log(this.QuizSectionId)
-      if(this.QuizSectionId !== undefined){
-              this.quizSection_id= this.QuizSectionId
-               
-              this.quizSectionService.getAllUserFromQuiz(this.quizSection_id).subscribe((res)=> {
-                this.allUserFromQuiz = res?._value
-           
-              })
+    if (this.QuizSectionId !== undefined) {
+      this.quizSection_id = this.QuizSectionId
 
-            this.getAllUser()
+      this.quizSectionService.getAllUserFromQuiz(this.quizSection_id).subscribe((res) => {
+        this.allUserFromQuiz = res?._value
 
-           
-      }
+      })
+
+      this.getAllUser()
+
+
+    }
   }
 
-  getAllUser(){
-    this.userService.getAllUsers().subscribe((res)=>{
+  getAllUser() {
+    this.userService.getAllUsers().subscribe((res) => {
 
-    
-        this.users =  res._value?.filter((value:any)=> value?.type_user === "User" )
-        this.userFilter(this.users)
-    
-        
-    
+
+      this.users = res._value?.filter((value: any) => value?.type_user === "User")
+      this.userFilter(this.users)
+
+
+
     })
   }
-   private  userFilter(users: Array<any>) {
-             
-                 
-                   for(let user of users){
-                       console.log(user)
-                     let userFounded = this.allUserFromQuiz.find((element) => element?.id === user?.id)
-                     console.log(userFounded)
-                     if(userFounded){
-                      this.quizSectionUser.push({
-                        id:   user?.id,
-                        username: userFounded?.user_name,
-                        added: true
-                      })
-                     }else{
-                      this.quizSectionUser.push({
-                        id: user?.id,
-                        username: user?.username,
-                        added: false
-                      })
-                     }
+  private userFilter(users: Array<any>) {
 
-                   }
 
-                   console.log(this.quizSectionUser)
-   }
+    for (let user of users) {
 
-   addUserToQuizSection(user_id: string){
-         this.usersAddToQuiz = [];
-         this.usersAddToQuiz.push(user_id)
+      let userFounded = this.allUserFromQuiz.find((element) => element?.user?.id === user?.id)
 
-         this.quizSectionService.addUserToQuizSection(this.usersAddToQuiz, this.quizSection_id).subscribe((res)=> {
-            console.log(res)
-         })
 
-   }
+      if (userFounded?.is_completed) {
+        continue
+      }
+      if (userFounded) {
+        this.quizSectionUser.push({
+          id: user?.id,
+          username: userFounded?.user.user_name,
+          added: true
+        })
+      } else {
+        this.quizSectionUser.push({
+          id: user?.id,
+          username: user?.username,
+          added: false
+        })
+      }
+
+    }
+
+    console.log(this.quizSectionUser)
+  }
+
+  addUserToQuizSection(user_id: string) {
+    this.usersAddToQuiz = [];
+    this.usersAddToQuiz.push(user_id)
+
+    this.quizSectionService.addUserToQuizSection(this.usersAddToQuiz, this.quizSection_id).subscribe((res) => {
+      this.getAllUser();
+    })
+
+  }
+
+  removerUserToQuizSection(user_id: string) {
+
+  }
 }
