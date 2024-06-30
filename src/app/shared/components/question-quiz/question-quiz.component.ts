@@ -106,7 +106,6 @@ export class QuestionQuizComponent implements OnInit {
       this.option_id  = option.id 
 
 
-      console.log(this.currentUser?.id)
      this.quizSectionService.quizAttemped({
       user_id: this.currentUser?.data?.id,
       option_id: option.id,
