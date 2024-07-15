@@ -32,7 +32,7 @@
 
                         <p *ngIf="user.added" style="margin-top: 10px; cursor: pointer;"
                           
-                        ><button  style="background-color: red;">Remover</button></p>
+                        ><button (click)="this.removerUserToQuizSection(user.id)"  style="background-color: red;">Remover</button></p>
                       </div>
                   
                     </div>

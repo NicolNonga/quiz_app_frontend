@@ -26,26 +26,23 @@ export class AddStudantToSessionComponent implements OnInit, OnChanges {
     private quizSectionService: QuizSectionService) { }
 
   ngOnInit(): void {
-    //this.getAllUser()
+    this.getAllUser()
   }
 
   ngOnChanges() {
-    console.log(this.QuizSectionId)
+  
     if (this.QuizSectionId !== undefined) {
       this.quizSection_id = this.QuizSectionId
 
-      this.quizSectionService.getAllUserFromQuiz(this.quizSection_id).subscribe((res) => {
-        this.allUserFromQuiz = res?._value
-
-      })
-
-      this.getAllUser()
+       this.usersFromQuiz(this.quizSection_id)
+           this.getAllUser()
 
 
     }
   }
 
   getAllUser() {
+    this.quizSectionUser = []
     this.userService.getAllUsers().subscribe((res) => {
 
 
@@ -83,7 +80,7 @@ export class AddStudantToSessionComponent implements OnInit, OnChanges {
 
     }
 
-    console.log(this.quizSectionUser)
+    
   }
 
   addUserToQuizSection(user_id: string) {
@@ -91,12 +88,34 @@ export class AddStudantToSessionComponent implements OnInit, OnChanges {
     this.usersAddToQuiz.push(user_id)
 
     this.quizSectionService.addUserToQuizSection(this.usersAddToQuiz, this.quizSection_id).subscribe((res) => {
-      this.getAllUser();
+      this.usersFromQuiz(this.quizSection_id)
+      this.updateUser(user_id, true)
+      
     })
 
   }
 
   removerUserToQuizSection(user_id: string) {
+    this.quizSectionService.removeUserToQuizSection(user_id, this.quizSection_id).subscribe((res)=> {
+      //this.getAllUser()
+        this.usersFromQuiz(this.quizSection_id)
+           this.updateUser(user_id, false)
+    })
 
+  }
+
+  public updateUser(user_id:string, is_add: boolean){
+     const  userFoundIndex = this.quizSectionUser.findIndex((element) => element.id === user_id);
+     this.quizSectionUser[userFoundIndex].added = is_add
+    
+     
+  }
+  private usersFromQuiz(quiz_section_id:string){
+ 
+    this.quizSectionService.getAllUserFromQuiz(quiz_section_id).subscribe((res) => {
+      this.allUserFromQuiz = res?._value
+      
+
+    })
   }
 }

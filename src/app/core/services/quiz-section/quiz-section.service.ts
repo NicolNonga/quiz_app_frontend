@@ -20,6 +20,7 @@ export interface quizAttempedInterface {
   providedIn: "root",
 })
 export class QuizSectionService {
+    appUrl =  environment.app_url
   constructor(public http: HttpClient,
      private loadingJs: LoadingJsFile,
       public autheService: AuthenticationService) {
@@ -27,12 +28,12 @@ export class QuizSectionService {
   }
 
   public listAllQuizSection(): Observable<any> {
-    return this.http.get(`${environment.app_url}/quiz_section/all`);
+    return this.http.get(`${this.appUrl}/quiz_section/all`);
   }
 
   public section_question (section_id: string | null):Observable<any>{
 
-    return this.http.get(`${environment.app_url}/section_question/${section_id}`)
+    return this.http.get(`${this.appUrl}/section_question/${section_id}`)
 
 
     
@@ -41,12 +42,12 @@ export class QuizSectionService {
   public getQuizSectionBytUser(): Observable<any>{
     const user:UserModel = this.autheService.getItemLocalStorage?.data
     
-    return this.http.get(`${environment.app_url}/quiz_session/list/users/${user.id}`,)
+    return this.http.get(`${this.appUrl}/quiz_session/list/users/${user.id}`,)
   }
 
   public quizAttemped(playload: quizAttempedInterface){
     
-      return this.http.post(`${environment.app_url}/quiz-attempted`, playload)
+      return this.http.post(`${this.appUrl}/quiz-attempted`, playload)
 
   }
   public update(quizSession: IQuizSection):Observable<any>{
@@ -56,12 +57,12 @@ export class QuizSectionService {
       quiz_id: quizSession.quiz_id,
     };
     console.log(quizSession)
-    return this.http.put(`${environment.app_url}/quiz_section/${quizSession.id}`, data);
+    return this.http.put(`${this.appUrl}/quiz_section/${quizSession.id}`, data);
   }
 
   public create(quizSectionData: IQuizSectionDTO): Observable<any> {
     return this.http.post(
-      `${environment.app_url}/quiz_section`, 
+      `${this.appUrl}/quiz_section`, 
       quizSectionData
     );
   }
@@ -86,14 +87,14 @@ export class QuizSectionService {
   }
 
    public getAllUserFromQuiz(quiz_section_id: string) : Observable<any> {
-    return this.http.get(`${environment.app_url}/users/quiz_section/${quiz_section_id}`)
+    return this.http.get(`${this.appUrl}/users/quiz_section/${quiz_section_id}`)
    }
 
    public addUserToQuizSection(users :Array<any>, quiz_sessetion_id: string){
-     return this.http.post(`${environment.app_url}/quiz_session/users`, {users, quiz_sessetion_id})
+     return this.http.post(`${this.appUrl}/quiz_session/users`, {users, quiz_sessetion_id})
 
    }
    public removeUserToQuizSection(user_id: string, quiz_section_id: string) {
-    
+       return  this.http.put(`${this.appUrl}/remover/user/quiz_section`, {user_id, quiz_section_id})
    }
 }
