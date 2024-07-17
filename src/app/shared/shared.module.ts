@@ -19,6 +19,8 @@ import { StudandDashboardComponent } from './components/studand-dashboard/studan
 import { QuestionQuizComponent } from './components/question-quiz/question-quiz.component';
 import { QuizQuestionDescriptionComponent } from './components/question-quiz/quiz-question-description/quiz-question-description.component';
 import { AddStudantToSessionComponent } from './components/card-quiz-session/add-studant-to-session/add-studant-to-session.component';
+import { UtilizadorQuizSectionComponent } from './components/utilizador-quiz-section/utilizador-quiz-section.component';
+import { ResultadoQuizComponent } from './components/resultado-quiz/resultado-quiz.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { AddStudantToSessionComponent } from './components/card-quiz-session/add
     StudandDashboardComponent,
     QuestionQuizComponent,
     QuizQuestionDescriptionComponent,
+    UtilizadorQuizSectionComponent,
+    ResultadoQuizComponent,
     
     
   ],

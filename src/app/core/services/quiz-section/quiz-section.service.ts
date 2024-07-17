@@ -16,6 +16,14 @@ export interface quizAttempedInterface {
    quiz_section_id: string 
    option_id: string
 }
+
+export interface userPontuationInterface{
+  user_id: string
+  quiz_section_id: string,
+  total_perguntas_erradas: number
+  total_pergunta_acertas: number
+  puntuation: Number
+}
 @Injectable({
   providedIn: "root",
 })
@@ -96,5 +104,9 @@ export class QuizSectionService {
    }
    public removeUserToQuizSection(user_id: string, quiz_section_id: string) {
        return  this.http.put(`${this.appUrl}/remover/user/quiz_section`, {user_id, quiz_section_id})
+   }
+
+   public saveUserPontuation(userPontuacao: userPontuationInterface): Observable<any> {
+     return this.http.post(`${environment.app_url}/users/quiz_section/puntation`, userPontuacao)
    }
 }

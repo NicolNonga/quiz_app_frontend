@@ -51,14 +51,23 @@
 
             <h2 style="margin-top: 10px">{{user.username}}</h2>
             <p class="title">Tipo de Utilizador</p>
-            <p>{{user.type_user}}</p>
+            <p>{{user.type_user === 'User' ? 'Estudante': 'Professor'}}</p>
             <div style="margin: 24px 0;">
               <a href="#"><i class="fa fa-dribbble"></i></a>
               <a href="#"><i class="fa fa-twitter"></i></a>
               <a href="#"><i class="fa fa-linkedin"></i></a>
               <a href="#"><i class="fa fa-facebook"></i></a>
             </div>
-            <p style="margin-top: 10px;"><button>Ver Quiz Seção</button></p>
+            <app-generic-button  (click)="this.showQuizSection(user)"
+              [proprietyButton]="{
+              show_model: false,
+              data_target_name: '#add-studant',
+              style:  this.user.type_user === 'User' ? 'width: 200px': 'width: 200px; background-color: red',
+              class:'button primary login-button',
+              name:  this.user.type_user === 'User' ? 'Ver quiz Sessão' : 'Administrador/professor'
+             }">
+
+            </app-generic-button>
           </div>
         </div>
       </div>

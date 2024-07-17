@@ -7,6 +7,7 @@ import { QuizQuestionComponent } from "./feature/quiz-question/quiz-question.com
 import { DasboardQuizCountComponent } from "./feature/dasboard-quiz-count/dasboard-quiz-count.component";
 import { QuestionQuizComponent } from "./shared/components/question-quiz/question-quiz.component";
 import { UtilizadoresComponent } from "./feature/utilizadores/utilizadores.component";
+import { UtilizadorQuizSectionComponent } from "./shared/components/utilizador-quiz-section/utilizador-quiz-section.component";
 // import our components
 
 const routes: Routes = [
@@ -34,7 +35,6 @@ const routes: Routes = [
   },
   {
     path: "all_quiz",
-
     component: QuizComponent,
     data: {
       title: "Quiz",
@@ -99,6 +99,18 @@ const routes: Routes = [
     component: QuestionQuizComponent,
     data: {
       title: "question Section",
+      layout: {
+        customLayout: true,
+        layoutNavigationTop: false,
+      },
+    },
+  },
+
+  {
+    path:'quiz-section-utilizador/:id',
+    component: UtilizadorQuizSectionComponent,
+    data: {
+      title: "Quiz secção de um utilizador",
       layout: {
         customLayout: true,
         layoutNavigationTop: false,

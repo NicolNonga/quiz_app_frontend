@@ -77,7 +77,7 @@
             <!-- /USER AVATAR -->
           </div>
 
-          <app-generic-button (click)="this.setQuizSessionSelected(quiz_session.id)" [proprietyButton]="{
+          <app-generic-button *ngIf="!is_studant"  (click)="this.setQuizSessionSelected(quiz_session.id)" [proprietyButton]="{
             show_model: true,
             data_target_name: '#add-studant',
             style: 'width: 200px',

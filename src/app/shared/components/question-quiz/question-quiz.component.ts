@@ -24,7 +24,7 @@ export class QuestionQuizComponent implements OnInit {
   public totalPontos: number = 0;
   public time = interval(1000);
   public baseUrl= `${environment.app_url}/attachement`
-  public currentUser:any
+  public currentUser!:any
   option_id!: string 
   constructor(
     private route: ActivatedRoute,
@@ -95,9 +95,19 @@ export class QuestionQuizComponent implements OnInit {
 
          if(this.currentQuestionNumber >= this.questionList.length - 1){
           
+           
         
           setTimeout(() => {
            this.isLastQuestion= true
+           this.quizSectionService.saveUserPontuation({
+            puntuation: this.totalPontos,
+            total_pergunta_acertas: this.curectAnswer,
+            total_perguntas_erradas: this.wrongAnswer,
+            user_id: this.currentUser?.data?.id,
+            quiz_section_id:  this.quiz_section_id
+          }).subscribe((res)=> {
+            
+          })
           }, 2000);
         
          }

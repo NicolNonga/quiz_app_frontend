@@ -92,22 +92,12 @@
   </div>
 
 
-  <div class="modal-content" *ngIf="this.isLastQuestion">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Resultado Quiz</h5>
 
-    </div>
-    <div class="modal-body">
-      <ul class="list-group">
-        <li class="list-group-item">Total pergunta Certa -> {{this.curectAnswer}} </li>
-        <li class="list-group-item">Total pergunta Errada -> {{this.wrongAnswer}}</li>
-        <li class="list-group-item">Total  Pontuação -> {{this.totalPontos}}</li>
-      </ul>
 
-    </div>
-   
-   
-  </div>
+
+  <app-resultado-quiz  *ngIf="this.isLastQuestion" [total_pergunta_certa]="this.curectAnswer" [total_pergunta_erradas]="this.wrongAnswer" [pontuacao]="this.totalPontos">
+
+  </app-resultado-quiz>
 </div>
 
 </div>

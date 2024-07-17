@@ -5,6 +5,7 @@ import { BehaviorSubject, map, Observable, of } from "rxjs";
 import { environment } from "src/environments/environment";
 import { UserModel } from "../../model/user";
 import { IUser } from "../../interface/user.interface";
+import { QuizSectionList, QuizSectionUserModel } from "src/app/shared/models/quiz-section-user-model";
 
 @Injectable({
   providedIn: "root",
@@ -82,5 +83,9 @@ export class AuthenticationService {
   public getAllUsers():Observable<any> {
     return this.http.get(`${environment
     .app_url}/users/all`)
+  }
+
+  public getAllQuizUser(user_id: string): Observable<any > {
+      return this.http.get(`${environment.app_url}/quiz_session/list/users/${user_id}`)
   }
 }
