@@ -33,8 +33,23 @@ export class StudandDashboardComponent implements OnInit {
 
   public listAllQuizSection() {
     this.quizSectionService.getQuizSectionBytUser().subscribe((response) => {
-    
-      this.quizSectionData = response?._value;
+     const data = response?._vlaue;
+     console.log(response?._value)
+      this.quizSectionData = response?._value.map((data:any)=>{
+            return {
+               id: data.quiz.id,
+               name:  data.quiz.name,
+               category_id: data.quiz.category_id,
+               quiz_id: data.quiz.quiz_id,
+               createdAt: data.quiz.createdAt,
+               updatedAt:data.quiz.updatedAt,
+               category : data.quiz.category,
+               quiz: data.quiz.quiz,
+               is_completed: data.completed
+            }
+      });
+
+      console.log(this.quizSectionData)
       
       
     }, (err)=> console.log(err));
@@ -53,6 +68,11 @@ export class StudandDashboardComponent implements OnInit {
 
   getSection(section:IQuizSection) {
    
+
+      if(section.is_completed){
+         alert("Sessção completada com sucesso")
+        return 
+      }
     const url = this.router.serializeUrl(
       this.router.createUrlTree(['/section-question',  section.id ])
     );

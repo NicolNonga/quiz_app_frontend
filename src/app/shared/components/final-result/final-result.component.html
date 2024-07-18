@@ -1,0 +1,20 @@
+<div   class="content-grid"  style="
+transform: translate(510px, 0px);
+margin: 0px;
+transition: transform 0.4s ease-in-out 0s;">
+ <app-banner [bannerData]="{
+    title: 'Resultado Final',
+    description:'Abaixo listamos todas a quiz de utilizadores'
+ }">
+ </app-banner>
+
+ <div>
+    <app-resultado-quiz [total_pergunta_certa]="this.totalPerguntaCertas"
+    [total_pergunta_erradas]="this.totlaPerguntaErradas"
+    [pontuacao]="this.totalPontuation"
+   >
+  
+   </app-resultado-quiz>
+ </div>
+
+</div>

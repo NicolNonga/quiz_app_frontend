@@ -96,6 +96,9 @@ export class QuestionQuizComponent implements OnInit {
          if(this.currentQuestionNumber >= this.questionList.length - 1){
           
            
+           this.quizSectionService.quizCompleted(this.currentUser?.data?.id, this.quiz_section_id).subscribe((res)=>{
+            
+           })
         
           setTimeout(() => {
            this.isLastQuestion= true

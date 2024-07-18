@@ -11,7 +11,7 @@ transition: transform 0.4s ease-in-out 0s;">
 
  <div class="row" style="margin-top: 10px;">
     <div class="col-md-12">
-         <app-card-quiz-session [cardQuizInfo]="this.quizSectionUsers" [is_studant]="this.is_studant">
+         <app-card-quiz-session [cardQuizInfo]="this.quizSectionUsers" [is_studant]="this.is_studant" (quizSessionEvent)="this.goToFinalResults($event)">
 
          </app-card-quiz-session>
     </div>
