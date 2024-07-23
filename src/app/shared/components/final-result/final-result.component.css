@@ -1,0 +1,27 @@
+
+.list-group-item:hover {
+    background-color: #f2ece4;
+    color: black;
+}
+
+.correct {
+    background-color: #0080006b !important;
+    color: white;
+}
+
+.incorrect {
+    background-color: #ff000066 !important;
+    color: white;
+}
+
+
+.desable {
+    pointer-events: none !important;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }

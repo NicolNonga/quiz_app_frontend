@@ -34,7 +34,6 @@ export class StudandDashboardComponent implements OnInit {
   public listAllQuizSection() {
     this.quizSectionService.getQuizSectionBytUser().subscribe((response) => {
      const data = response?._vlaue;
-     console.log(response?._value)
       this.quizSectionData = response?._value.map((data:any)=>{
             return {
                id: data.quiz.id,
@@ -49,7 +48,7 @@ export class StudandDashboardComponent implements OnInit {
             }
       });
 
-      console.log(this.quizSectionData)
+   
       
       
     }, (err)=> console.log(err));
@@ -70,7 +69,7 @@ export class StudandDashboardComponent implements OnInit {
    
 
       if(section.is_completed){
-         alert("Sessção completada com sucesso")
+         this.router.navigate(['quiz-section-final-result', this.studantInfo.id, section.id])
         return 
       }
     const url = this.router.serializeUrl(

@@ -10,6 +10,7 @@ export interface IQuizSection{
     updatedAt: string
     category : Icategory
     quiz: QuizInterface
+    is_completed?: boolean
 }
 
 export interface IQuizSectionDTO {

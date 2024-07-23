@@ -85,10 +85,19 @@
                 class:'button danger login-button',
                 name: 'Ver Resultado'
               }"></app-generic-button>
+              <app-generic-button *ngIf="is_studant && !quiz_session.is_completed"  [proprietyButton]="{
+                show_model: true,
+                data_target_name: '#add-studant',
+                style: 'width: 200px;',
+                class:'button danger login-button',
+                name: 'Fazer a  Quiz'
+              }"></app-generic-button>
             </div>
             
+        
           </div>
    
+          
 
           <app-generic-button *ngIf="!is_studant"  (click)="this.setQuizSessionSelected(quiz_session.id)" [proprietyButton]="{
             show_model: true,

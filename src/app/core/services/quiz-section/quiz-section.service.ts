@@ -109,4 +109,15 @@ export class QuizSectionService {
    public saveUserPontuation(userPontuacao: userPontuationInterface): Observable<any> {
      return this.http.post(`${environment.app_url}/users/quiz_section/puntation`, userPontuacao)
    }
+   public quizCompleted(user_id: string, quiz_section_id: string):Observable<any> {
+    return this.http.put(`${environment.app_url}/quiz_session/users/completed`, {user_id, quiz_section_id})
+   }
+
+   public showUserPontuation(user_id: string, quiz_section_id: string):Observable<any> {
+     return this.http.get(`${environment.app_url}/users/puntuation/${user_id}/${quiz_section_id}`)
+   }
+
+   public getQuizAttemped(user_id: string, quiz_section_id: string): Observable<any> {
+    return this.http.get(`${environment.app_url}/quiz-attempted/${user_id}/${quiz_section_id}`)
+   }
 }

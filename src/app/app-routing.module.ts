@@ -8,6 +8,7 @@ import { DasboardQuizCountComponent } from "./feature/dasboard-quiz-count/dasboa
 import { QuestionQuizComponent } from "./shared/components/question-quiz/question-quiz.component";
 import { UtilizadoresComponent } from "./feature/utilizadores/utilizadores.component";
 import { UtilizadorQuizSectionComponent } from "./shared/components/utilizador-quiz-section/utilizador-quiz-section.component";
+import { FinalResultComponent } from "./shared/components/final-result/final-result.component";
 // import our components
 
 const routes: Routes = [
@@ -106,6 +107,17 @@ const routes: Routes = [
     },
   },
 
+  {
+    path:'quiz-section-final-result/:user_id/:quiz_section_id',
+    component: FinalResultComponent,
+    data: {
+      title: "question Section",
+      layout: {
+        customLayout: true,
+        layoutNavigationTop: false,
+      },
+    },
+  },
   {
     path:'quiz-section-utilizador/:id',
     component: UtilizadorQuizSectionComponent,

@@ -8,13 +8,68 @@ transition: transform 0.4s ease-in-out 0s;">
  }">
  </app-banner>
 
- <div>
-    <app-resultado-quiz [total_pergunta_certa]="this.totalPerguntaCertas"
-    [total_pergunta_erradas]="this.totlaPerguntaErradas"
-    [pontuacao]="this.totalPontuation"
-   >
-  
-   </app-resultado-quiz>
+ 
+
+ <div style="margin-top: 100px; margin-left: 10%;" tabindex="-1">
+
+   <div class="modal-dialog" style=" margin-left: 0%;">
+      <div class="modal-content">
+         <div class="modal-header">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-8">
+                     <div class="modal-title">
+                          <h5 class="modal-title">
+                           <span class="badge bg-warning">
+                              {{this.currentQuestionNumber + 1}}
+                          </span>  
+                          {{this.sectionQuestion[currentQuestionNumber]?.question[currentQuestionNumber].quiz_question.question_text}}
+                          </h5>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+         <div class="modal-body">
+            <ul *ngFor="let option of this.sectionQuestion[this.currentQuestionNumber].question[this.currentQuestionNumber].quiz_question.quiz_option index as id"
+            class="list-group"
+          >
+          <li *ngIf="!option.is_img"
+            style="cursor: pointer; margin-bottom: 10px;" 
+            [ngClass]="{ 'correct': option.id === this.sectionQuestion[currentQuestionNumber].quiz_option_id && option.is_correct, 'incorrect':  option.id === this.sectionQuestion[currentQuestionNumber].quiz_option_id && !option.is_correct}"
+            class="list-group-item "
+          >
+            {{ option.option_text }}  <i style="float: right;" [ngClass]="{'bi bi-check-circle text-success': option.is_correct, 'bi bi-plus-circle-fill text-danger': !option?.is_correct }"></i>
+          </li>
+          <li *ngIf="this.option.is_img" 
+          
+            >
+            
+            <!--  <img class="list-group-item center" style="width: 500px; cursor: pointer; margin-bottom: 5px;text-align: center;"  src="{{this.baseUrl}}/{{option.quiz_attachment_option[0].quiz_attacment.file_name}}"> -->
+
+          </li>
+              
+   
+          </ul>
+         </div>
+      </div>
+   </div>
+   <app-generic-button [proprietyButton]="{
+      show_model: false,
+      data_target_name: '#exampleModal',
+      style: 'width:86%; margin-top:00px',
+      class:'button primary login-button',
+      name: 'Proxima Pergunta'
+    }" (click)=" this.nextQuestion()"></app-generic-button>
+
+ <app-resultado-quiz [total_pergunta_certa]="this.totalPerguntaCertas"
+ [total_pergunta_erradas]="this.totlaPerguntaErradas"
+ [pontuacao]="this.totalPontuation"
+>
+
+</app-resultado-quiz>
  </div>
+
 
 </div>

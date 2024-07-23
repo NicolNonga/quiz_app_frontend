@@ -81,11 +81,21 @@ export class QuestionQuizComponent implements OnInit {
   }
 
   questionSelected(option:any, quizQuestion:any){
-      
+
+     console.log(option)
+     
+     this.quizSectionService.quizAttemped({
+      user_id: this.currentUser?.data?.id,
+      option_id: option.id,
+      quiz_section_id:  this.quiz_section_id
+     }).subscribe((res)=>{
+      console.log("res")
+     })
 
         if(option.is_correct){
           this.curectAnswer++;
-          this.totalPontos = quizQuestion?.value
+          console.log(this.totalPontos, quizQuestion?.value)
+          this.totalPontos = this.totalPontos +  quizQuestion?.value 
          
         }
 
@@ -119,13 +129,6 @@ export class QuestionQuizComponent implements OnInit {
       this.option_id  = option.id 
 
 
-     this.quizSectionService.quizAttemped({
-      user_id: this.currentUser?.data?.id,
-      option_id: option.id,
-      quiz_section_id:  this.quiz_section_id
-     }).subscribe((res)=>{
-      console.log("res")
-     })
   }
 
 

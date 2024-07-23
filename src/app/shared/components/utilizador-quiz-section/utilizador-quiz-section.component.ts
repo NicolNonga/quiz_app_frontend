@@ -22,14 +22,32 @@ export class UtilizadorQuizSectionComponent implements OnInit {
   }
 
   getUserQuizSection(){
-      this.userService.getAllQuizUser(this.userId).subscribe((response: QuizSectionList)=>{
-              this.quizSectionUsers = response._value
-              console.log(this.quizSectionUsers)
+      this.userService.getAllQuizUser(this.userId).subscribe((response: any)=>{
+        const data = response?._vlaue;
+        this.quizSectionUsers = response?._value.map((data:any)=>{
+              return {
+                 id: data.quiz.id,
+                 name:  data.quiz.name,
+                 category_id: data.quiz.category_id,
+                 quiz_id: data.quiz.quiz_id,
+                 createdAt: data.quiz.createdAt,
+                 updatedAt:data.quiz.updatedAt,
+                 category : data.quiz.category,
+                 quiz: data.quiz.quiz,
+                 is_completed: data.completed
+              }
+        });
+            
       })
   }
 
    goToFinalResults(quiz_section: IQuizSection) {
-        this.router.navigate(['quiz-section-final-result', quiz_section.id, this.userId])
+    if(!quiz_section.is_completed){
+      alert("Ainda  Não fez a quiz")
+      return
+    }
+    console.log(quiz_section)
+      this.router.navigate(['quiz-section-final-result',  this.userId, quiz_section.id])
  
   }
 }

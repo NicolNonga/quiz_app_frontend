@@ -21,6 +21,7 @@ import { QuizQuestionDescriptionComponent } from './components/question-quiz/qui
 import { AddStudantToSessionComponent } from './components/card-quiz-session/add-studant-to-session/add-studant-to-session.component';
 import { UtilizadorQuizSectionComponent } from './components/utilizador-quiz-section/utilizador-quiz-section.component';
 import { ResultadoQuizComponent } from './components/resultado-quiz/resultado-quiz.component';
+import { FinalResultComponent } from "./components/final-result/final-result.component";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ResultadoQuizComponent } from './components/resultado-quiz/resultado-qu
     QuizQuestionDescriptionComponent,
     UtilizadorQuizSectionComponent,
     ResultadoQuizComponent,
+    FinalResultComponent
     
     
   ],
