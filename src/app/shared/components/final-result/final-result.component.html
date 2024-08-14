@@ -37,7 +37,7 @@ transition: transform 0.4s ease-in-out 0s;">
           >
           <li *ngIf="!option.is_img"
             style="cursor: pointer; margin-bottom: 10px;" 
-            [ngClass]="{ 'correct': option.id === this.sectionQuestion[currentQuestionNumber].quiz_option_id && option.is_correct, 'incorrect':  option.id === this.sectionQuestion[currentQuestionNumber].quiz_option_id && !option.is_correct}"
+            [ngClass]="{ 'correct': option.id === this.sectionQuestion[currentQuestionNumber].quiz_option_id}"
             class="list-group-item "
           >
             {{ option.option_text }}  <i style="float: right;" [ngClass]="{'bi bi-check-circle text-success': option.is_correct, 'bi bi-plus-circle-fill text-danger': !option?.is_correct }"></i>
