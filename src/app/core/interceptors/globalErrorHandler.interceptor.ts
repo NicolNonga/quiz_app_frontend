@@ -55,6 +55,7 @@ export class GlobalErrorHandle implements HttpInterceptor{
                 notifier.showError(message)
              }
          }
+         console.log("error", error)
     throw new Error(error.message)
   }))
 }

@@ -7,11 +7,17 @@
     <!-- MEMBERSHIP PREVIEW INFO -->
     <div class="membership-preview-info">
       <!-- MEMBERSHIP PREVIEW PRICE -->
-      <p class="membership-preview-price">
-        <span class="membership-preview-price-currency"></span>  Nº
-        {{ i + 1 }} - {{ quiz?.quizQuestion?.question_text }}  - {{quiz?.quizQuestion?.value}}
-       
-      
+      <p class="membership-preview-price"></p>
+      <div class="row">
+        <div class="col-md-12">
+          Nº
+          {{ i + 1 }} - {{ quiz?.quizQuestion?.quiz_question.question_text }} {{quiz?.quizQuestion?.quiz_question.value }} V
+        </div>
+        <div class="col-md-12" style="color: #995959;">
+          Quiz Sessão : {{ quiz?.quizQuestion?.quiz_section.name }}
+        </div>
+      </div>
+
       <!-- /MEMBERSHIP PREVIEW PRICE -->
 
       <!-- MEMBERSHIP PREVIEW NAME -->
@@ -19,26 +25,36 @@
       <!-- /MEMBERSHIP PREVIEW NAME -->
 
       <!-- MEMBERSHIP PREVIEW PERIOD -->
-      <p class="membership-preview-period">
-        <strong></strong
-        >.
-      </p>
+      <p class="membership-preview-period"><strong></strong>.</p>
       <!-- /MEMBERSHIP PREVIEW PERIOD -->
 
       <!-- MEMBERSHIP PREVIEW DESCRIPTION -->
       <div class="membership-preview-description">
         <p class="membership-preview-price">
-            <span class="membership-preview-price-currency"></span>
-            Opções de Respostas
-          </p>
+          <span class="membership-preview-price-currency"></span>
+          Opções de Respostas
+        </p>
 
-          <p class="membership-preview-price center"  *ngIf="quiz?.quizOption.length === 0">
-            <span class="membership-preview-price-currency" style="margin-left: 100px;"></span>  Sem opções  <i style="margin-left: 5px;" class="bi bi-emoji-frown"></i>
-          </p>
+        <p
+          class="membership-preview-price center"
+          *ngIf="quiz?.quizOption.length === 0"
+        >
+          <span
+            class="membership-preview-price-currency"
+            style="margin-left: 100px"
+          ></span>
+          Sem opções <i style="margin-left: 5px" class="bi bi-emoji-frown"></i>
+        </p>
 
         <ul>
           <li *ngFor="let option of quiz?.quizOption">
-            {{ option?.option_text }}  <i [ngClass]="{'bi bi-check-circle text-success': option?.is_correct , 'bi bi-plus-circle-fill text-danger': !option?.is_correct}"></i>
+            {{ option?.option_text }}
+            <i
+              [ngClass]="{
+                'bi bi-check-circle text-success': option?.is_correct,
+                'bi bi-plus-circle-fill text-danger': !option?.is_correct
+              }"
+            ></i>
           </li>
         </ul>
       </div>
@@ -48,19 +64,20 @@
     <!-- /MEMBERSHIP PREVIEW INFO -->
 
     <!-- MEMBERSHIP PREVIEW INFO -->
-    <div class="membership-preview-info" *ngIf="this.quiz?.quizOption.length !== 4">
+    <div class="membership-preview-info" *ngIf="quiz?.quizOption.length !== 4">
       <!-- MEMBERSHIP PREVIEW BUTTON -->
-      <app-generic-button [proprietyButton]="{
-        show_model: true,
-        data_target_name: '#addQuestion',
-        style: '',
-        class:'button primary login-button',
-        name: 'Adicionar Respostas'
-      }" (click)="this.setQuizQuestionId(quiz)"></app-generic-button>
+      <app-generic-button
+        [proprietyButton]="{
+          show_model: true,
+          data_target_name: '#addQuestion',
+          style: '',
+          class: 'button primary login-button',
+          name: 'Adicionar Respostas'
+        }"
+        (click)="this.setQuizQuestionId(quiz)"
+      ></app-generic-button>
       <!-- /MEMBERSHIP PREVIEW BUTTON -->
     </div>
     <!-- /MEMBERSHIP PREVIEW INFO -->
   </div>
 </div>
-
-

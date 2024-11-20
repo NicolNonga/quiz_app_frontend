@@ -36,11 +36,9 @@ export class CategoriaComponent implements OnInit {
   }
 
   public createCategory(event: ICategoryDTO) {
+    console.log("update", event)
     this.categoryService.create(event).subscribe((response) => {
-      if (response) {
-      //  this.notificationService.showSucess("Categoria Criado com sucesso");
          this.getAllCategory()
-      }
     });
   }
 
@@ -55,6 +53,7 @@ export class CategoriaComponent implements OnInit {
   }
 
     public submiteUpdateCategory(event:Icategory){
+      console.log("updated", event)
        this.categoryService.update(event).subscribe((response)=>{
         if(response){
           this.notificationService.showSucess("Categoria Actualizado com sucesso")
