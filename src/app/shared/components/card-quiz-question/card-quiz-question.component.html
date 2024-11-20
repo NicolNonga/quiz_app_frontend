@@ -37,7 +37,7 @@
 
         <p
           class="membership-preview-price center"
-          *ngIf="quiz?.quizOption.length === 0"
+          *ngIf="quiz?.quizQuestion?.quiz_question?.quiz_option.length === 0"
         >
           <span
             class="membership-preview-price-currency"
@@ -47,7 +47,7 @@
         </p>
 
         <ul>
-          <li *ngFor="let option of quiz?.quizOption">
+          <li *ngFor="let option of quiz?.quizQuestion?.quiz_question?.quiz_option">
             {{ option?.option_text }}
             <i
               [ngClass]="{
@@ -64,7 +64,7 @@
     <!-- /MEMBERSHIP PREVIEW INFO -->
 
     <!-- MEMBERSHIP PREVIEW INFO -->
-    <div class="membership-preview-info" *ngIf="quiz?.quizOption.length !== 4">
+    <div class="membership-preview-info" *ngIf=" quiz?.quizQuestion?.quiz_question?.quiz_option.length !== 4">
       <!-- MEMBERSHIP PREVIEW BUTTON -->
       <app-generic-button
         [proprietyButton]="{

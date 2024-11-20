@@ -27,6 +27,7 @@ export class CardQuizQuestionComponent implements OnInit {
     });
   }
   setQuizQuestionId(quiz_question_id: string){
+      console.log("this quiz-question",quiz_question_id)
          this.quizQuestionID.emit(quiz_question_id)
   }
 }

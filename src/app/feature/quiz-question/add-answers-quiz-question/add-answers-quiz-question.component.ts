@@ -63,7 +63,7 @@ export class AddAnswersQuizQuestionComponent extends DumbComponent {
     }
     this.formData = new FormData();
     const data = {
-      quiz_question_id: this.quiz_section?.quizQuestionany?.id,
+      quiz_question_id: this.quiz_section?.quizQuestion?.quiz_question?.id,
       quiz_option: this.asnwersAdd,
     };
 
@@ -77,7 +77,7 @@ export class AddAnswersQuizQuestionComponent extends DumbComponent {
     this.formData.append("quiz_option", JSON.stringify(this.asnwersAdd));
     this.formData.append(
       "quiz_question_id",
-      this.quiz_section?.quizQuestion?.id
+      this.quiz_section?.quizQuestion?.quiz_question?.id
     );
 
         
