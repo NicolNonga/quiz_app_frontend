@@ -3,6 +3,11 @@
 
 </app-banner>
 
+<div class="center">
+  <h1 class="center"  style="margin-left: 30%; margin-top: 2%;" *ngIf="this.quizSectionData.length === 0">
+      Nenhuma  Quiz Sessão Adicionada
+  </h1>
+</div>
 <app-card-quiz-session *ngIf="this.quizSectionData.length !== 0"  [is_studant]="true" (quizSessionEvent)="this.getSection($event)"
  [cardQuizInfo]="this.quizSectionData"></app-card-quiz-session>
  

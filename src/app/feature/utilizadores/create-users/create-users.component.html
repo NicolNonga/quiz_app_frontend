@@ -19,6 +19,7 @@
         
                   <div class="form-item">
                     <!-- FORM INPUT -->
+                    <label for="login-username">Tipo de Utilizador</label>
                     <div class="form-input">
             
                    
@@ -44,8 +45,9 @@
                 <div  class="form-row">
                     <div class="form-item">
                         <!-- FORM INPUT -->
+                        <label for="login-username">Username</label>
                         <div class="form-input">
-                          <label for="login-username">Username</label>
+                        
                           <input type="text" id="login-username"  [ngClass]="{ 'is-invalid': submitted && this.f['username'].errors, 'is-valid': f['username'].touched && !f['username'].errors }" formControlName="username" class="is-invalid" name="login_username">
                           <div *ngIf="this.submitted && this.f['username'].errors" class="invalid-feedback">
                             <div *ngIf=" this.f['username'].errors['required']">
@@ -62,6 +64,7 @@
                 <div class="form-row">
                   <!-- FORM ITEM -->
                   <div class="form-item">
+                    <label for="login-username">Password</label>
                     <!-- FORM INPUT -->
                     <div class="form-input">
                       <label for="login-password">Password</label>

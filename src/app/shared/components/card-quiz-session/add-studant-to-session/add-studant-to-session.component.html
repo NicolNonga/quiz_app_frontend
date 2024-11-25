@@ -11,6 +11,10 @@
         <div class="modal-body">
           <form >
             <div class="container">
+              <h1 *ngIf="this.quizSectionUser.length === 0">
+                  Nenhum Utilizador Estudante Encontrado
+
+              </h1>
               <div class="row">
                       
                 <div class="col-md-3" *ngFor="let user  of this.quizSectionUser">
