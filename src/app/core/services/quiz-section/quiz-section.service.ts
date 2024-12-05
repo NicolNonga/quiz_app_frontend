@@ -14,7 +14,8 @@ import { UserModel } from "../../model/user";
 export interface quizAttempedInterface {
     user_id: string
    quiz_section_id: string 
-   option_id: string
+   option_id: string,
+   time_to_complete: string
 }
 
 export interface userPontuationInterface{

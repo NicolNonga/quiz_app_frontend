@@ -17,7 +17,7 @@ transition: transform 0.4s ease-in-out 0s;">
          <div class="modal-header">
             <div class="container">
                <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-10">
                      <div class="modal-title">
                           <h5 class="modal-title">
                            <span class="badge bg-warning">
@@ -26,7 +26,13 @@ transition: transform 0.4s ease-in-out 0s;">
                           {{this.sectionQuestion[currentQuestionNumber]?.question[currentQuestionNumber].quiz_question.question_text}}
                           </h5>
                      </div>
+                     
                   </div>
+            <!--       <div class="col-md-2"   >
+                     <span  class="badge bg-warning">
+                       tempo feito   {{this.sectionQuestion[currentQuestionNumber]?.time_take_to_complete}} s
+                     </span>
+                  </div> -->
                </div>
 
             </div>
@@ -42,7 +48,7 @@ transition: transform 0.4s ease-in-out 0s;">
           >
             {{ option.option_text }}  <i style="float: right;" [ngClass]="{'bi bi-check-circle text-success': option.is_correct, 'bi bi-plus-circle-fill text-danger': !option?.is_correct }"></i>
           </li>
-          <li *ngIf="this.option.is_img" 
+          <li *ngIf="this.option?.is_img" 
           
             >
             
@@ -61,7 +67,7 @@ transition: transform 0.4s ease-in-out 0s;">
       style: 'width:86%; margin-top:00px',
       class:'button primary login-button',
       name: 'Proxima Pergunta'
-    }" (click)=" this.nextQuestion()"></app-generic-button>
+    }" (click)=" this.nextQuestion()" *ngIf="this.sectionQuestion.length-1 !== currentQuestionNumber"></app-generic-button>
 
  <app-resultado-quiz [total_pergunta_certa]="this.totalPerguntaCertas"
  [total_pergunta_erradas]="this.totlaPerguntaErradas"

@@ -87,7 +87,8 @@ export class QuestionQuizComponent implements OnInit {
      this.quizSectionService.quizAttemped({
       user_id: this.currentUser?.data?.id,
       option_id: option.id,
-      quiz_section_id:  this.quiz_section_id
+      quiz_section_id:  this.quiz_section_id,
+      time_to_complete: this.remainingTime.toString()
      }).subscribe((res)=>{
       console.log("res")
      })

@@ -21,6 +21,7 @@ export class FinalResultComponent implements OnInit {
   public quiz_started: boolean = false
   public sectionQuestion: Array<any> = [];
   public currentQuestionNumber: number = 0;
+
   constructor(private quizSectionService : QuizSectionService, private route: ActivatedRoute) {
     this.userId = this.route.snapshot.paramMap.get('user_id')!
     this.quizSectionId = this.route.snapshot.paramMap.get('quiz_section_id')!
@@ -47,12 +48,11 @@ export class FinalResultComponent implements OnInit {
            this.sectionQuestion = res?.data?.map((data:any)=>{
               return {
                 question: data?.quiz_section?.section_question,
-                quiz_option_id: data?.quez_option_id
+                quiz_option_id: data?.quez_option_id,
+                time_take_to_complete: data?.time_take_to_complete
               }
            });
-           console.log(this.sectionQuestion[this.currentQuestionNumber].quiz_option_id)
-           console.log(this.sectionQuestion[this.currentQuestionNumber].question[this.currentQuestionNumber].quiz_question.quiz_option[this.currentQuestionNumber].id)
-      console.log()
+
       })
   }
 
