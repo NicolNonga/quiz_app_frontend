@@ -15,6 +15,7 @@ export class QuestionModel{
     createdAt: string,
     updatedAt: string
     quiz_option: quiz_option []
+    value?: number 
 }
 
 export interface quiz_option {

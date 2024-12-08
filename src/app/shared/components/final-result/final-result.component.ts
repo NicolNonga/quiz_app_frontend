@@ -58,7 +58,6 @@ export class FinalResultComponent implements OnInit {
 
   public nextQuestion(){
      if(this.currentQuestionNumber >=this.sectionQuestion[0]?.question?.length -1 ){
-      alert("last question")
       return
      } 
      this.currentQuestionNumber ++

@@ -23,7 +23,7 @@ transition: transform 0.4s ease-in-out 0s;">
                            <span class="badge bg-warning">
                               {{this.currentQuestionNumber + 1}}
                           </span>  
-                          {{this.sectionQuestion[currentQuestionNumber]?.question[currentQuestionNumber].quiz_question.question_text}}
+                          {{this.sectionQuestion[currentQuestionNumber]?.question[currentQuestionNumber].quiz_question.question_text}} - {{this.sectionQuestion[currentQuestionNumber]?.question[currentQuestionNumber].quiz_question.value}} Valores
                           </h5>
                      </div>
                      
@@ -67,7 +67,7 @@ transition: transform 0.4s ease-in-out 0s;">
       style: 'width:86%; margin-top:00px',
       class:'button primary login-button',
       name: 'Proxima Pergunta'
-    }" (click)=" this.nextQuestion()" *ngIf="this.sectionQuestion.length-1 !== currentQuestionNumber"></app-generic-button>
+    }" (click)=" this.nextQuestion()" *ngIf="this.sectionQuestion[0].question.length-1 !== currentQuestionNumber"></app-generic-button>
 
  <app-resultado-quiz [total_pergunta_certa]="this.totalPerguntaCertas"
  [total_pergunta_erradas]="this.totlaPerguntaErradas"

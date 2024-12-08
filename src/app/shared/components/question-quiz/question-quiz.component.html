@@ -13,7 +13,9 @@
                 {{
                   this.questionList[currentQuestionNumber].quiz_question.question_text
                 }}
-                ?
+                ? -   {{
+                  this.questionList[currentQuestionNumber].quiz_question.value 
+                }} Valores
                </h5>
             </div>
             <div class="col-md-4"   *ngIf="this.questionList.length > 0">
